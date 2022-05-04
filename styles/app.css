@@ -1,0 +1,17 @@
+:root{
+  --bg-color:#10111b;
+  --primary-color:#212432;
+  --icon-color:#92949a;
+  --icon-active-color:#e00002;
+  --text-color:#fcfcfc;
+  --rate-color:#eae000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
