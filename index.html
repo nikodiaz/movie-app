@@ -9,9 +9,125 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/app.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <h1>Movie App</h1>
-  <script src="./src/main.js" type="module"></script>
+
+  <!-- HEADER -->
+
+  <header id="header" class="header-container">
+    <span class="header-arrow"><i class="fa-solid fa-chevron-left"></i></span>
+
+    <h1 class="header-title">Movie App</h1>
+    <h1 class="header-title header-title--category inactive">Action</h1>
+
+    <form id="searchForm" class="header-searchForm">
+      <input type="text" placeholder="Search Movie">
+      <button><i class="fas fa-search"></i></button>
+    </form>
+
+  </header>
+
+
+  <!-- TRENDING -->
+
+  <section id="trending" class="trending-container">
+
+    <div class="trending-header" id="trending">
+      <h2 class="trending-title">Trending</h2>
+      <button class="viewMore-btn">See More</button>
+    </div>
+
+    <article class="trending-movieList">
+
+      <!-- <div class="movie-container">
+        <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" 
+             alt="Name of movie"
+             class="movie-img">
+        <p class="movie-title">title</p>
+      </div> -->
+
+    </article>
+</section>
+
+ <!-- CATEGORIES -->
+
+  <section id="categories" class="categories-container">
+    <div class="categories-header">
+      <h2 class="categories-title">Categories</h2>
+      <button class="viewMore-btn">See More</button>
+    </div>
+
+    <article class="categories-list">
+ 
+      <!-- <div class="category-container">
+        <h3 class="category-title">Action</h3>
+      </div> -->
+      
+
+    </article>
+  </section>
+
+  <!-- GENERIC -->
+
+  <section id="genericList" class="genericList-container inactive">
+
+    <!-- <div class="movie-container">
+      <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" 
+           alt="Name of movie"
+           class="movie-img">
+      <p class="movie-title">title</p>
+    </div> -->
+
+  </section>
+
+  <!-- MOVIE DETAIL -->
+
+  <section id="movieDetail" class="movieDetail-container inactive">
+
+    <div class="movie-container">
+      <img alt="Name of movie"
+           class="movie-img">
+      <div>
+        <h1 class="movieDetail-title"></h1>
+        <article class="categories-list">
+          
+          <!-- <div class="category-container">
+            <h3 class="category-title" id="id14">Action</h3>
+          </div> -->
+          
+        </article>
+        <i class="fas fa-star"></i>
+        <span class="movieDetail-score"></span>
+      </div>
+    </div>
+
+    <p class="movieDetail-description"></p>
+
+
+    <article class="relatedMovies-container">
+      <h2 class="relatedMovies-title">Similar movies</h2>
+
+      <div class="relatedMovies-scrollContainer">
+
+        <!-- <div class="movie-container">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" 
+               alt="Name of movie"
+               class="movie-img">
+          <p class="movie-title">title</p>
+        </div> -->
+        </div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/src/private.js"></script>
+  <script src="/src/nodes.js"></script>
+  <script src="./src/main.js"></script>
+  <script src="/src/navigation.js"></script>
 </body>
 </html>
