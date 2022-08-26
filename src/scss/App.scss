@@ -1,0 +1,14 @@
+@use 'normalize';
+@use 'vars';
+@use 'mixins';
+
+body {
+	min-height: 100vh;
+	font-family: 'Poppins';
+	background: vars.$black-2;
+}
+
+#root {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}

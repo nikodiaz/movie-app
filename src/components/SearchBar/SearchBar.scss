@@ -1,0 +1,34 @@
+@use '../../scss/vars';
+@use '../../scss/mixins';
+
+.search-form {
+	position: relative;
+	@include mixins.flexible(flex, row, nowrap, center, center);
+	padding: 0.2rem 1rem;
+	width: 40%;
+	height: 2rem;
+	color: vars.$white;
+	background: vars.$black-1;
+	border-radius: 10px;
+	input {
+		width: 100%;
+		color: inherit;
+		background: inherit;
+		border: none;
+		outline: none;
+	}
+	.btn-search {
+		position: absolute;
+		right: 0.5rem;
+		@include mixins.flexible(flex, row, nowrap, center, center);
+		width: 2rem;
+		height: 2rem;
+		background: vars.$purple;
+		border: none;
+		border-radius: 50%;
+		i {
+			color: vars.$white;
+			font-size: 1.1rem;
+		}
+	}
+}

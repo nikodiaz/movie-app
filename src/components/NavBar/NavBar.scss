@@ -1,0 +1,53 @@
+@use '../../scss/vars';
+@use '../../scss/mixins';
+
+.aside__menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	@include mixins.flexible(flex, column, nowrap, center, center);
+	grid-column: 1/2;
+	width: 20%;
+	background: #1a1a1a;
+	.logo {
+		position: absolute;
+		top: 1.8rem;
+	}
+	nav {
+		height: 70%;
+		text-align: left;
+		font-weight: 500;
+		ul {
+			@include mixins.flexible(
+				flex,
+				column,
+				nowrap,
+				space-between,
+				center
+			);
+			padding: 0;
+			height: inherit;
+			list-style: none;
+			li:hover {
+				border-right: 3px solid vars.$purple;
+				a,
+				i {
+					color: vars.$purple;
+				}
+			}
+			li {
+				width: 100%;
+				padding: 0.3rem 1rem;
+				border-right: 3px solid transparent;
+				cursor: pointer;
+				i {
+					margin-right: 0.5rem;
+				}
+				a {
+					color: vars.$gray-1;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

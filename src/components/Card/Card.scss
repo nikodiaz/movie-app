@@ -1,0 +1,51 @@
+@use '../../scss/vars';
+@use '../../scss/mixins';
+
+.card {
+	position: relative;
+	grid-row: 2/3;
+	margin: 0 auto;
+	width: 80%;
+	color: vars.$white;
+	&:hover {
+		.card__detail {
+			opacity: 1;
+			transform: scale(1);
+			h3,
+			p {
+				margin: 0;
+			}
+			p {
+				color: vars.$gray-2;
+				margin-bottom: 1rem;
+			}
+		}
+		img {
+			box-shadow: 4px 4px 0px 1px vars.$purple;
+		}
+	}
+	img {
+		max-width: 100%;
+		border-radius: 11px;
+		cursor: pointer;
+	}
+	.card__detail {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 6px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		width: 100%;
+		text-align: left;
+		background: vars.$black-gradient;
+		border-radius: 10px;
+		opacity: 0;
+		transform: scale(0);
+		cursor: pointer;
+		div {
+			padding-left: 1rem;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+@use '../../scss/vars';
+@use '../../scss/mixins';
+
+.header {
+	@include mixins.flexible(flex, row, nowrap, center, center);
+	grid-column: 2/6;
+	height: 6rem;
+	background: vars.$black-3;
+}
