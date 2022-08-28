@@ -14,8 +14,16 @@ const getTrending = async (media, state) => {
 		`${baseUrl}trending/${media}/day?api_key=${API_KEY}`,
 	);
 	const { data } = res;
-	console.log(data.results);
 	state(data.results);
 };
 
-export { getTrending };
+const getPopular = async (page = '1', state) => {
+	const res = await axios.get(
+		`${baseUrl}movie/popular?api_key=${API_KEY}&language=es-ES&page=${page}`,
+	);
+	const { data } = res;
+	console.log(data);
+	state(data.results);
+};
+
+export { getTrending, getPopular };

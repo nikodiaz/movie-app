@@ -1,6 +1,6 @@
 import React from 'react';
 //Components
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBar from '../../components/SearchBar/SearchBar';
 //import Avatar from '../Avatar/Avatar';
 
 //Styles

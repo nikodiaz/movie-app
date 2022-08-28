@@ -4,7 +4,7 @@ import 'typeface-poppins';
 import './scss/App.scss';
 
 //Components
-import Header from './components/Header/Header';
+import Header from './containers/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Views/Home';
 import { Route, Routes } from 'react-router-dom';

@@ -1,0 +1,61 @@
+@use '../../scss/vars';
+@use '../../scss/mixins';
+
+.slider {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	grid-row: 2/3;
+	grid-column: 2/6;
+	height: 500px;
+	h2 {
+		color: vars.$white;
+		margin-bottom: 2rem;
+	}
+	.image {
+		height: 450px;
+		border-radius: 10px;
+	}
+	.slide {
+		opacity: 0;
+		transition-duration: 1s ease;
+		&.active {
+			opacity: 1;
+			transition-duration: 1s;
+			transform: scale(1.08);
+		}
+	}
+	span {
+		position: absolute;
+		top: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50px;
+		height: 50px;
+		font-size: vars.$title-font-size;
+		color: vars.$white;
+		border-radius: 50%;
+		cursor: pointer;
+		background: vars.$gray-2;
+		opacity: 0.9;
+		box-shadow: 0px 0px 5px 1px vars.$black-1;
+		z-index: 9;
+		user-select: none;
+		i {
+			&::before {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+	.left-arrow {
+		left: 8rem;
+	}
+	.right-arrow {
+		right: 8rem;
+	}
+}

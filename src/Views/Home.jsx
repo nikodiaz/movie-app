@@ -2,18 +2,23 @@ import { useEffect, useState } from 'react';
 import { getTrending } from '../services/fetchers';
 
 //Components
-import List from '../components/List/List';
+import List from '../containers/List/List';
+import Slider from '../components/Slider/Slider';
 
 const Home = () => {
-	const [movies, setMovies] = useState([]);
+	const [trendingMovies, setTrendingMovies] = useState([]);
 	useEffect(() => {
-		getTrending('movie', setMovies);
+		getTrending('movie', setTrendingMovies);
 	}, []);
 	return (
 		<>
-			{movies.length !== 0 && (
+			<Slider />
+			{trendingMovies.length !== 0 && (
 				<>
-					<List section='Trending Movies' data={movies.slice(0, 4)} />
+					<List
+						section='Trending Movies'
+						data={trendingMovies.slice(0, 4)}
+					/>
 				</>
 			)}
 		</>
