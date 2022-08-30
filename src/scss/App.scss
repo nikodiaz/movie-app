@@ -3,13 +3,14 @@
 @use 'mixins';
 
 body {
-	min-height: 100vh;
 	font-family: 'Poppins';
-	background: vars.$black-2;
 }
 
 #root {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	grid-template-rows: auto auto;
+	grid-auto-rows: auto;
+	padding-bottom: 5rem;
+	min-height: 100vh;
+	background: vars.$black-2;
 }

@@ -1,14 +1,18 @@
 import React from 'react';
+import Button from '../../components/Button/Button';
 import Card from '../../components/Card/Card';
 import './List.scss';
 
 const List = ({ data, section }) => {
 	return (
 		<div className='list'>
-			<h2>
-				<i className='bi bi-graph-up-arrow'></i>
-				{section}
-			</h2>
+			<div className='list-header'>
+				<h2>
+					<i className='bi bi-graph-up-arrow'></i>
+					{section}
+				</h2>
+				<Button classList='see-all' text='See all' />
+			</div>
 			{data !== undefined &&
 				data.map((item) => {
 					return (
@@ -20,11 +24,6 @@ const List = ({ data, section }) => {
 						/>
 					);
 				})}
-			{/* <Card
-				poster={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
-				title={data.title}
-				year={data.release_date.substring(0, 4)}
-			/> */}
 		</div>
 	);
 };

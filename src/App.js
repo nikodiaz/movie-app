@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom';
 //Styles
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'typeface-poppins';
@@ -7,7 +8,7 @@ import './scss/App.scss';
 import Header from './containers/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Views/Home';
-import { Route, Routes } from 'react-router-dom';
+import Login from './components/Login/Login';
 
 function App() {
 	return (
@@ -15,7 +16,7 @@ function App() {
 			<Header />
 			<NavBar />
 			<Routes>
-				<Route path='/' element={<Home />} />
+				<Route path='/' element={<Login />} />
 			</Routes>
 		</>
 	);

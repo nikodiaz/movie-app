@@ -17,13 +17,38 @@ const getTrending = async (media, state) => {
 	state(data.results);
 };
 
-const getPopular = async (page = '1', state) => {
+/**
+ *
+ * @param {Number} page page number
+ * @param {Function} state setState
+ */
+
+const getPopular = async (page = 1, state) => {
 	const res = await axios.get(
 		`${baseUrl}movie/popular?api_key=${API_KEY}&language=es-ES&page=${page}`,
 	);
 	const { data } = res;
-	console.log(data);
 	state(data.results);
 };
 
-export { getTrending, getPopular };
+/**
+ *
+ * @param {Function} state
+ */
+
+const getTopRated = async (state) => {
+	const res = await axios.get(
+		`${baseUrl}movie/top_rated?api_key=${API_KEY}&language=es-ES`,
+	);
+	const { data } = res;
+	state(data.results);
+};
+
+const createRequestToken = async () => {
+	const res = await axios.post(
+		`${baseUrl}authentication/session/new?api_key=${API_KEY}`,
+	);
+	console.log(res);
+};
+
+export { getTrending, getPopular, getTopRated, createRequestToken };

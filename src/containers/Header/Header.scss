@@ -2,6 +2,9 @@
 @use '../../scss/mixins';
 
 .header {
+	position: fixed;
+	left: 0;
+	right: 0;
 	@include mixins.flexible(flex, row, nowrap, center, center);
 	grid-column: 2/6;
 	height: 6rem;

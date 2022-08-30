@@ -6,17 +6,15 @@ import './Slider.scss';
 const Slider = () => {
 	const [popularMovies, setPopularMovies] = useState([]);
 	const [current, setCurrent] = useState(0);
-	const slideItems = popularMovies.slice(0, 5);
+	const slideItems = popularMovies.slice(0, 9);
 	const length = slideItems.length;
 
 	const nextSlide = () => {
 		setCurrent(current === length - 1 ? 0 : current + 1);
-		console.log(current);
 	};
 
 	const prevSlide = () => {
 		setCurrent(current === 0 ? length - 1 : current - 1);
-		console.log(current);
 	};
 
 	useEffect(() => {
