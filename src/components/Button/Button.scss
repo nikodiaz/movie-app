@@ -1,18 +1,18 @@
-@use '../../scss/vars';
+@use '../../scss/normalize';
 @use '../../scss/mixins';
+@use '../../scss/vars';
 
 .button {
-	padding: 0 1rem;
-	height: 2.5rem;
-	border: none;
-	border-radius: 5px;
-}
-.see-all {
-	color: vars.$gray-2;
-	background: vars.$black-3;
-	border: 2px solid vars.$purple;
-}
-.login-button {
+	position: relative;
+	padding: 1rem;
+	width: 18rem;
 	color: vars.$white;
-	background: vars.$purple;
+	font-size: 1.1rem;
+	font-weight: 500;
+	border-radius: 40px;
+	background: vars.$red;
+	&:hover {
+		transform: scale(1.03);
+		transition: all 0.2s ease;
+	}
 }

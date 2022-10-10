@@ -1,0 +1,19 @@
+@use '../../scss/normalize';
+@use '../../scss/mixins';
+@use '../../scss/vars';
+
+.categories {
+	margin-left: 4rem;
+	color: vars.$white;
+	.categories--tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		.tag {
+			padding: 0.5rem 1rem;
+			border-radius: 50px;
+			background: vars.$red;
+			cursor: pointer;
+		}
+	}
+}

@@ -1,48 +1,40 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+//assets
 import logo from '../../assets/logo.svg';
+import home from '../../assets/Icon/Home.svg';
+import movies from '../../assets/Icon/Movie.svg';
+import series from '../../assets/Icon/TV.svg';
+import star from '../../assets/Icon/Star Stroke.svg';
+//style
 import './NavBar.scss';
 
 const NavBar = () => {
 	return (
-		<aside className='aside__menu'>
-			<img src={logo} alt='logo' className='logo' />
+		<aside className='navbar'>
+			<figure>
+				<img src={logo} alt='logo' />
+			</figure>
 			<nav>
 				<ul>
-					<li>
-						<NavLink to='/browse'>
-							<i className='bi bi-compass'></i>
-							Browse
+					<li className='nav--item' title='Home'>
+						<NavLink to='/'>
+							<img src={home} alt='icon' />
 						</NavLink>
 					</li>
-					<li>
-						<NavLink to='/trends'>
-							<i className='bi bi-graph-up-arrow'></i>
-							Trends
-						</NavLink>
-					</li>
-					<li>
-						<NavLink to='/community'>
-							<i className='bi bi-globe'></i>
-							Community
-						</NavLink>
-					</li>
-					<li>
-						<NavLink to='/series'>
-							<i className='bi bi-tv'></i>
-							Series
-						</NavLink>
-					</li>
-					<li>
+					<li className='nav--item' title='Movies'>
 						<NavLink to='/movies'>
-							<i className='bi bi-film'></i>
-							Movies
+							<img src={movies} alt='icon' />
 						</NavLink>
 					</li>
-					<li>
-						<NavLink to='/categories'>
-							<i className='bi bi-columns-gap'></i>
-							Categories
+					<li className='nav--item' title='Series'>
+						<NavLink to='/series'>
+							<img src={series} alt='icon' />
+						</NavLink>
+					</li>
+					<li className='nav--item' title='Favorites'>
+						<NavLink to='/favorites'>
+							<img src={star} alt='icon' />
 						</NavLink>
 					</li>
 				</ul>

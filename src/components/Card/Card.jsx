@@ -1,18 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Card.scss';
+import star from '../../assets/Icon/Star Fill.svg';
 
-const Card = ({ poster, title, year }) => {
-	return (
-		<div className='card'>
-			<img src={poster} alt='poster' />
-			<div className='card__detail'>
-				<div>
-					<h3>{title}</h3>
-					<p>{year.substring(0, 4)}</p>
+const baseImg = 'https://image.tmdb.org/t/p/w780';
+
+const Card = ({ data, loading, category }) => {
+	if (!loading) {
+		const starscount = data.vote_average;
+		const style = {
+			backgroundImage: `url(${baseImg}${data.poster_path})`,
+		};
+		return (
+			<Link to=''>
+				<div className='card' style={style}>
+					<div className='card--overview'>
+						<p className='rating'>
+							<img src={star} alt='rating' />
+							{starscount}
+						</p>
+						<h3>{data.title}</h3>
+					</div>
 				</div>
-			</div>
-		</div>
-	);
+			</Link>
+		);
+	}
 };
 
 export default Card;

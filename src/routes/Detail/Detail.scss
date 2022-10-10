@@ -1,0 +1,43 @@
+@use '../../scss/normalize';
+@use '../../scss/mixins';
+@use '../../scss/vars';
+
+.detail {
+	padding: 2rem;
+	color: vars.$white;
+	.detail--description {
+		display: flex;
+		.detail--poster {
+			width: 32rem;
+			margin-right: 4rem;
+			img {
+				max-width: 100%;
+			}
+		}
+		.casts--content {
+			display: flex;
+			gap: 1rem;
+			.cast--item {
+				padding: 0.3rem;
+				width: 5rem;
+				border: 1px solid white;
+				img {
+					max-width: 100%;
+				}
+				h3 {
+					margin: 0.3rem;
+				}
+			}
+		}
+	}
+	.detail--trailers {
+		.detail--trailers__list {
+			display: flex;
+			gap: 2rem;
+			.trailer {
+				min-width: 350px;
+				height: 200px;
+			}
+		}
+	}
+}

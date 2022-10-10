@@ -1,66 +1,79 @@
-import React, { useEffect, useState } from 'react';
-import { getPopular } from '../../services/fetchers';
-import Card from '../Card/Card';
+import React, { useState } from 'react';
 import './Slider.scss';
+import leftArrow from '../../assets/Icon/Chevron-Left.svg';
+import rightArrow from '../../assets/Icon/Chevron-Right.svg';
+import star from '../../assets/Icon/Star Fill.svg';
+import Button from '../Button/Button';
 
-const Slider = () => {
-	const [popularMovies, setPopularMovies] = useState([]);
+const baseImg = 'https://image.tmdb.org/t/p/original';
+
+const Slider = ({ data, loading }) => {
 	const [current, setCurrent] = useState(0);
-	const slideItems = popularMovies.slice(0, 9);
-	const length = slideItems.length;
 
-	const nextSlide = () => {
-		setCurrent(current === length - 1 ? 0 : current + 1);
-	};
-
-	const prevSlide = () => {
-		setCurrent(current === 0 ? length - 1 : current - 1);
-	};
-
-	useEffect(() => {
-		getPopular(1, setPopularMovies);
-	}, []);
-
-	if (popularMovies.length === 0) return null;
-
-	return (
-		<>
-			<section className='slider'>
-				<h2>Popular Movies</h2>
-				{popularMovies.length > 0 && (
-					<div>
-						<span onClick={prevSlide} className='left-arrow'>
-							<i className='bi bi-chevron-left'></i>
-						</span>
-						<span onClick={nextSlide} className='right-arrow'>
-							<i className='bi bi-chevron-right'></i>
-						</span>
-						{slideItems.map((item, idx) => {
-							return (
-								<div
-									key={item.id}
-									className={
-										idx === current
-											? 'slide active'
-											: 'slide'
-									}
-								>
-									{idx === current && (
-										<Card
-											key={item.id}
-											poster={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-											title={item.title}
-											year={item.release_date}
-										/>
-									)}
-								</div>
-							);
-						})}
+	if (!loading) {
+		const starscount = data.results[current].vote_average;
+		const nextSlide = () => {
+			setCurrent(current === items.length - 1 ? 0 : current + 1);
+		};
+		const prevSlide = () => {
+			setCurrent(current === 0 ? items.length - 1 : current - 1);
+		};
+		const items = data.results.slice(0, 5);
+		const style = {
+			backgroundImage: `url(${baseImg}${items[current].backdrop_path})`,
+		};
+		return (
+			<>
+				<span onClick={prevSlide} className='arrow arrow-left'>
+					<img src={leftArrow} alt='previous' />
+				</span>
+				<section className='slider' style={style}>
+					<div className='slider--overview'>
+						<h1>
+							{items[current].media_type === 'movie'
+								? items[current].title
+								: items[current].name}
+						</h1>
+						<p className='rating'>
+							<img src={star} alt='rating' />
+							{starscount}
+						</p>
+						<p>{items[current].overview}</p>
+						<div className='slider--status'>
+							<span
+								onClick={() => setCurrent(0)}
+								className={current === 0 ? 'active' : ''}
+							></span>
+							<span
+								onClick={() => setCurrent(1)}
+								className={current === 1 ? 'active' : ''}
+							></span>
+							<span
+								onClick={() => setCurrent(2)}
+								className={current === 2 ? 'active' : ''}
+							></span>
+							<span
+								onClick={() => setCurrent(3)}
+								className={current === 3 ? 'active' : ''}
+							></span>
+							<span
+								onClick={() => setCurrent(4)}
+								className={current === 4 ? 'active' : ''}
+							></span>
+						</div>
+						<Button
+							text='View Details'
+							border='none'
+							width='16rem'
+						/>
 					</div>
-				)}
-			</section>
-		</>
-	);
+				</section>
+				<span onClick={nextSlide} className='arrow arrow-right'>
+					<img src={rightArrow} alt='next' />
+				</span>
+			</>
+		);
+	}
 };
 
 export default Slider;

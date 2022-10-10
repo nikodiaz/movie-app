@@ -1,25 +1,32 @@
 import { Route, Routes } from 'react-router-dom';
 //Styles
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'typeface-poppins';
+import 'typeface-roboto';
 import './scss/App.scss';
 
 //Components
-import Header from './containers/Header/Header';
-import NavBar from './components/NavBar/NavBar';
-import Home from './Views/Home';
-import Login from './components/Login/Login';
+import Home from './routes/Home/Home';
+import Results from './routes/Results/Results';
+import Detail from './routes/Detail/Detail';
+//import configureStore from './app/store';
 
 function App() {
 	return (
 		<>
-			<Header />
-			<NavBar />
 			<Routes>
-				<Route path='/' element={<Login />} />
+				<Route path='/' element={<Detail />} />
+				<Route path='/search=:search' element={<Results />} />
 			</Routes>
 		</>
 	);
 }
+// const reducer = () => {};
 
+// const store = configureStore(
+// 	reducer,
+// 	window.__REDUX_DEVTOOLS_EXTENSION__ &&
+// 		window.__REDUX_DEVTOOLS_EXTENSION__(),
+// );
+// store.suscribe(()=>{
+//store.getState();
+//});
 export default App;

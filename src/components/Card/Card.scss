@@ -1,52 +1,43 @@
-@use '../../scss/vars';
+@use '../../scss/normalize';
 @use '../../scss/mixins';
+@use '../../scss/vars';
 
+a {
+	text-decoration: none;
+	&:focus {
+		outline: none;
+	}
+}
 .card {
 	position: relative;
-	grid-row: 2/3;
-	margin: 0 auto;
-	width: 80%;
+	display: flex;
+	align-items: flex-end;
+	width: 12rem;
+	height: 18rem;
+	text-align: left;
 	color: vars.$white;
-	&:hover {
-		.card__detail {
-			opacity: 1;
-			transition: 0.3s all ease-out;
-			h3,
-			p {
-				margin: 0;
-			}
-			p {
-				color: vars.$gray-2;
-				margin-bottom: 1rem;
-			}
-		}
-		img {
-			box-shadow: 4px 4px 0px 1px vars.$purple;
-			transition: 0.2s all ease;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	.card--overview {
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+		z-index: 9;
+		p,
+		h3 {
+			margin: 0.5rem;
 		}
 	}
-	img {
-		max-width: 100%;
-		border-radius: 11px;
-		box-shadow: 3px 3px 5px 1px vars.$black-1;
-		cursor: pointer;
-	}
-	.card__detail {
+	&::before {
 		position: absolute;
 		top: 0;
 		left: 0;
-		bottom: 6px;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		width: 100%;
-		text-align: left;
-		background: vars.$black-gradient;
-		border-radius: 10px;
-		opacity: 0;
-		cursor: pointer;
-		div {
-			padding-left: 1rem;
-		}
+		bottom: 0;
+		right: 0;
+		content: '';
+		background-image: linear-gradient(
+			rgba(0, 0, 0, 0.1),
+			rgba(0, 0, 0, 0.6)
+		);
 	}
 }

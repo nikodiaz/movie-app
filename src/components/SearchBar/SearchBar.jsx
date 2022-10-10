@@ -1,20 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 import './SearchBar.scss';
 
-const SearchBar = ({ onSubmit, search }) => {
+const SearchBar = () => {
+	const [visible, setVisible] = useState(false);
+	const navigate = useNavigate();
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const keyword = e.currentTarget.keyword.value;
+		console.log(keyword);
+		navigate(`/search=${keyword}`);
+	};
+
 	return (
-		<form onSubmit={onSubmit} className='search-form'>
-			<input
-				type='text'
-				name='search'
-				placeholder='Search...'
-				autoComplete='off'
-				value={search}
-			/>
-			<button type='submit' className='btn-search'>
-				<i className='bi bi-search'></i>
-			</button>
-		</form>
+		<div className='search-bar'>
+			<form
+				onSubmit={handleSubmit}
+				className={`search-bar--container ${visible ? 'active' : ''}`}
+			>
+				<input
+					type='text'
+					className='search-bar--input'
+					placeholder='Search...'
+					name='keyword'
+				/>
+				<button
+					type='button'
+					className='search-bar--btn'
+					onClick={() => {
+						setVisible(!visible);
+					}}
+				></button>
+				<button type='submit' className='search-bar--btn submit'>
+					<AiOutlineSearch></AiOutlineSearch>
+				</button>
+			</form>
+		</div>
 	);
 };
 

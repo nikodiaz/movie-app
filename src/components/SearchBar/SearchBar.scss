@@ -1,34 +1,64 @@
-@use '../../scss/vars';
+@use '../../scss/normalize';
 @use '../../scss/mixins';
+@use '../../scss/vars';
 
-.search-form {
-	position: relative;
-	@include mixins.flexible(flex, row, nowrap, center, center);
-	padding: 0.2rem 1rem;
-	width: 40%;
-	height: 2rem;
-	color: vars.$white;
-	background: vars.$black-1;
-	border-radius: 10px;
-	input {
-		width: 100%;
-		color: inherit;
-		background: inherit;
-		border: none;
-		outline: none;
-	}
-	.btn-search {
-		position: absolute;
-		right: 0.5rem;
-		@include mixins.flexible(flex, row, nowrap, center, center);
-		width: 2rem;
-		height: 2rem;
-		background: vars.$purple;
-		border: none;
-		border-radius: 50%;
-		i {
+.search-bar {
+	position: absolute;
+	top: 1rem;
+	right: 5rem;
+	z-index: 99;
+	.search-bar--container {
+		position: relative;
+		height: 50px;
+		&.active {
+			.search-bar--input {
+				width: 200px;
+				border-bottom: 1px solid white;
+				background: transparent;
+				opacity: 1;
+			}
+			.search-bar--btn,
+			.submit {
+				transform: translateX(198px);
+			}
+			.search-bar--btn.submit {
+				z-index: 10;
+			}
+		}
+		.search-bar--input {
+			box-sizing: border-box;
+			padding: 0 1rem;
+			width: 50px;
+			height: 40px;
+			font-size: 18px;
 			color: vars.$white;
-			font-size: 1.1rem;
+			opacity: 0;
+			border: 0;
+			transition: width 0.3s ease;
+			&::placeholder {
+				color: vars.$white;
+			}
+		}
+		.search-bar--btn {
+			position: absolute;
+			padding: 0;
+			top: 0rem;
+			left: 0rem;
+			width: 50px;
+			height: 50px;
+			font-size: 24px;
+			color: vars.$white;
+			background: transparent;
+			border: 0;
+			transition: transform 0.3s ease;
+			z-index: 9;
+		}
+		.submit {
+			z-index: 1;
+		}
+		.search-bar--input,
+		.search-bar--btn {
+			outline: none;
 		}
 	}
 }

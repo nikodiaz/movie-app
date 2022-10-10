@@ -1,24 +1,38 @@
 //Colors
 
-$black-1: #000;
-$black-2: #0e0e0e;
-$black-3: #1d1d1d;
-$gray-1: #dedede;
-$gray-2: #626262;
-$gray-3: #898989;
+//primary
+$eerie: #1d1d1d;
 $white: #fff;
-$purple: #9069ff;
+$cyan: #0feffd;
+$red: #e10856;
+$magenta: #ff00f5;
+//secondary
+$dust: #c4c4c4;
+$carbon: #333333;
+$nero: #262626;
+$black: #000;
 
 //Gradients
 
-$blue-gradient: linear-gradient(#1d57c7, #1815aa);
-$purple-gradient: linear-gradient(#7939ff, #c823f1);
-$red-gradient: linear-gradient(#ee4545, #db0303);
-$yellow-gradient: linear-gradient(#ffce22, #d1843c);
-$green-gradient: linear-gradient(#75fdab, #1db13e);
+$neon-gradient: linear-gradient(
+	90deg,
+	#0fc9fd,
+	#ff00f5,
+	rgba(15, 125, 253, 0.1)
+);
 $black-gradient: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 
 //Font
 
-$base-font-size: 16px;
-$title-font-size: 32px;
+$h1-font-size: 2.5rem;
+$h1-line-height: 3rem;
+$h2-font-size: 2rem;
+$h2-line-height: 2.5rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.1rem;
+$h5-font-size: 1rem;
+$card-font-size: 1rem;
+$body-font-size: 1rem;
+$body-line-height: 2rem;
+$small-line-height: 1rem;
+$small-font-size: 0.9rem;

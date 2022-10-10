@@ -1,9 +1,13 @@
 import React from 'react';
 import './Button.scss';
 
-const Button = ({ text, onClick, classList, type }) => {
+const Button = ({ text, border, background, onClick, width }) => {
 	return (
-		<button onClick={onClick} className={`button ${classList}`} type={type}>
+		<button
+			className='button'
+			style={{ border: border, background: background, width: width }}
+			onClick={onClick}
+		>
 			{text}
 		</button>
 	);

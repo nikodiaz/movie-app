@@ -3,14 +3,29 @@
 @use 'mixins';
 
 body {
-	font-family: 'Poppins';
+	font-family: 'Roboto';
+	overflow-x: hidden;
+	&::-webkit-scrollbar {
+		width: 12px;
+		background: vars.$eerie;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 15px;
+		background: vars.$dust;
+		border-right: 2px solid vars.$eerie;
+		border-left: 2px solid vars.$eerie;
+	}
 }
 
 #root {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-auto-rows: auto;
-	padding-bottom: 5rem;
+	width: 100vw;
 	min-height: 100vh;
-	background: vars.$black-2;
+	background: vars.$eerie;
+	padding-bottom: 4rem;
+
+	.rating {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
 }

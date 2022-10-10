@@ -1,0 +1,23 @@
+@use '../../scss/normalize';
+@use '../../scss/mixins';
+@use '../../scss/vars';
+
+.list--title {
+	margin-left: 4rem;
+	color: vars.$white;
+}
+.list--container {
+	display: flex;
+	gap: 1rem;
+	margin-left: 4rem;
+	padding-bottom: 1rem;
+	padding-right: 2rem;
+	overflow-x: scroll;
+	&::-webkit-scrollbar {
+		height: 10px;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 15px;
+		background: vars.$dust;
+	}
+}
