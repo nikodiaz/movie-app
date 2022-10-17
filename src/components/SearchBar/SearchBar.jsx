@@ -10,8 +10,11 @@ const SearchBar = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const keyword = e.currentTarget.keyword.value;
-		console.log(keyword);
 		navigate(`/search=${keyword}`);
+		if (keyword === '') {
+			navigate('/');
+		}
+		setVisible(false);
 	};
 
 	return (

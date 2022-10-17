@@ -5,14 +5,15 @@ import star from '../../assets/Icon/Star Fill.svg';
 
 const baseImg = 'https://image.tmdb.org/t/p/w780';
 
-const Card = ({ data, loading, category }) => {
+const Card = ({ data, loading }) => {
 	if (!loading) {
 		const starscount = data.vote_average;
 		const style = {
 			backgroundImage: `url(${baseImg}${data.poster_path})`,
 		};
+
 		return (
-			<Link to=''>
+			<Link to={`/movie/${data.id}`}>
 				<div className='card' style={style}>
 					<div className='card--overview'>
 						<p className='rating'>

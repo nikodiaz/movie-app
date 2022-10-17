@@ -3,7 +3,7 @@ import './Slider.scss';
 import leftArrow from '../../assets/Icon/Chevron-Left.svg';
 import rightArrow from '../../assets/Icon/Chevron-Right.svg';
 import star from '../../assets/Icon/Star Fill.svg';
-import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 const baseImg = 'https://image.tmdb.org/t/p/original';
 
@@ -11,7 +11,7 @@ const Slider = ({ data, loading }) => {
 	const [current, setCurrent] = useState(0);
 
 	if (!loading) {
-		const starscount = data.results[current].vote_average;
+		const starscount = data.results[current].vote_average.toFixed(1);
 		const nextSlide = () => {
 			setCurrent(current === items.length - 1 ? 0 : current + 1);
 		};
@@ -61,11 +61,7 @@ const Slider = ({ data, loading }) => {
 								className={current === 4 ? 'active' : ''}
 							></span>
 						</div>
-						<Button
-							text='View Details'
-							border='none'
-							width='16rem'
-						/>
+						<Link to={`/movie/${items[current].id}`}>Details</Link>
 					</div>
 				</section>
 				<span onClick={nextSlide} className='arrow arrow-right'>

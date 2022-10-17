@@ -2,26 +2,36 @@ import './Detail.scss';
 import useFetch from '../../hooks/useFetch';
 import {
 	API_KEY,
+	BASE_URL,
 	CAST_MAX_NUM,
 	IMG_POSTER_SMALL,
+	LANGUAGE_SPA,
 	URL_CAST,
-	URL_DETAIL,
+	URL_DETAIL_MOVIE,
 	URL_IMG,
 	URL_VIDEO,
 	URL_YOUTUBE,
 } from '../../hooks/vars';
 import star from '../../assets/Icon/Star Fill.svg';
+import { useParams } from 'react-router-dom';
 
 const Detail = () => {
-	const detail = useFetch(URL_DETAIL + 338947 + API_KEY);
-	const casts = useFetch(URL_DETAIL + 338947 + URL_CAST + API_KEY);
-	const trailers = useFetch(URL_DETAIL + 338947 + URL_VIDEO + API_KEY);
+	const { id } = useParams();
+	const detail = useFetch(
+		BASE_URL + URL_DETAIL_MOVIE + id + API_KEY + LANGUAGE_SPA,
+	);
+	const casts = useFetch(
+		BASE_URL + URL_DETAIL_MOVIE + id + URL_CAST + API_KEY,
+	);
+	const trailers = useFetch(
+		BASE_URL + URL_DETAIL_MOVIE + id + URL_VIDEO + API_KEY,
+	);
+
 	if (!detail.loading && !casts.loading && !trailers.loading) {
 		const castToShow = casts.data.cast.slice(0, CAST_MAX_NUM);
 		let youtubeTrailer = trailers.data.results.filter(
 			(trailer) => trailer.site === 'YouTube',
 		);
-		console.log(youtubeTrailer);
 
 		return (
 			<div className='detail'>

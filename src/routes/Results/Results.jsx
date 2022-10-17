@@ -1,30 +1,35 @@
 import './Results.scss';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 import useFetch from '../../hooks/useFetch';
-import { API_KEY_ALT, URL_SEARCH } from '../../hooks/vars';
-import Button from '../../components/Button/Button';
+import {
+	API_KEY,
+	API_KEY_ALT,
+	BASE_URL,
+	DISCOVER_MOVIES_BY_CATEGORY,
+	URL_LIST,
+	URL_SEARCH,
+} from '../../hooks/vars';
 
 const Results = ({ title }) => {
-	const { search } = useParams();
-	const searchResults = useFetch(URL_SEARCH + search + API_KEY_ALT);
-	console.log(searchResults);
-	const { results } = searchResults.data;
-	const navigate = useNavigate();
+	const { search, category } = useParams();
+	const searchResults = useFetch(
+		BASE_URL + URL_SEARCH + search + API_KEY_ALT,
+	);
+	const discoverByCategory = useFetch(
+		BASE_URL + URL_LIST + API_KEY + DISCOVER_MOVIES_BY_CATEGORY + category,
+	);
 
-	const handleBack = () => {
-		navigate('/');
-	};
+	let results;
 
-	if (!searchResults.loading) {
+	if (!searchResults.loading && !discoverByCategory.loading) {
+		if (!search) {
+			results = discoverByCategory.data.results;
+		} else {
+			results = searchResults.data.results;
+		}
 		return (
 			<div className='results'>
-				<Button
-					text='Back to Home'
-					border='none'
-					width='10rem'
-					onClick={handleBack}
-				/>
 				<h2 className='results--title'>{title}</h2>
 				<div className='results--container'>
 					{results.map((item) => {

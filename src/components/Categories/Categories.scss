@@ -3,7 +3,7 @@
 @use '../../scss/vars';
 
 .categories {
-	margin-left: 4rem;
+	margin: 0 4rem;
 	color: vars.$white;
 	.categories--tags {
 		display: flex;
@@ -11,6 +11,7 @@
 		gap: 1rem;
 		.tag {
 			padding: 0.5rem 1rem;
+			color: white;
 			border-radius: 50px;
 			background: vars.$red;
 			cursor: pointer;

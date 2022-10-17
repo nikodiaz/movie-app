@@ -3,6 +3,8 @@ import Card from '../Card/Card';
 import './List.scss';
 
 const List = ({ data, title }) => {
+	console.log(data);
+
 	return (
 		<>
 			<h2 className='list--title'>{title}</h2>

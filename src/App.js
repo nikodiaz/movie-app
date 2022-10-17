@@ -7,14 +7,20 @@ import './scss/App.scss';
 import Home from './routes/Home/Home';
 import Results from './routes/Results/Results';
 import Detail from './routes/Detail/Detail';
+import NavBar from './components/NavBar/NavBar';
+import SearchBar from './components/SearchBar/SearchBar';
 //import configureStore from './app/store';
 
 function App() {
 	return (
 		<>
+			<SearchBar />
+			<NavBar />
 			<Routes>
-				<Route path='/' element={<Detail />} />
+				<Route path='/' element={<Home />} />
+				<Route path='/movie/:id' element={<Detail />} />
 				<Route path='/search=:search' element={<Results />} />
+				<Route path='/:category_name/:category' element={<Results />} />
 			</Routes>
 		</>
 	);
