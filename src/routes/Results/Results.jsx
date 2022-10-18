@@ -11,7 +11,7 @@ import {
 	URL_SEARCH,
 } from '../../hooks/vars';
 
-const Results = ({ title }) => {
+const Results = ({ title, addOrRemoveFav }) => {
 	const { search, category } = useParams();
 	const searchResults = useFetch(
 		BASE_URL + URL_SEARCH + search + API_KEY_ALT,
@@ -19,6 +19,8 @@ const Results = ({ title }) => {
 	const discoverByCategory = useFetch(
 		BASE_URL + URL_LIST + API_KEY + DISCOVER_MOVIES_BY_CATEGORY + category,
 	);
+	const favoritesMovies = localStorage.getItem('favsMovies');
+	console.log(favoritesMovies);
 
 	let results;
 
@@ -38,6 +40,7 @@ const Results = ({ title }) => {
 								key={item.id}
 								data={item}
 								loading={item.loading}
+								addOrRemoveFav={addOrRemoveFav}
 							/>
 						);
 					})}

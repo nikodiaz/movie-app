@@ -2,9 +2,7 @@ import React from 'react';
 import Card from '../Card/Card';
 import './List.scss';
 
-const List = ({ data, title }) => {
-	console.log(data);
-
+const List = ({ data, title, addOrRemoveFav }) => {
 	return (
 		<>
 			<h2 className='list--title'>{title}</h2>
@@ -16,6 +14,7 @@ const List = ({ data, title }) => {
 								key={movie.id}
 								data={movie}
 								loading={data.loading}
+								addOrRemoveFav={addOrRemoveFav}
 							/>
 						);
 					})}

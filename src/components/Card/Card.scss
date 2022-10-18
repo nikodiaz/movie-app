@@ -18,7 +18,23 @@ a {
 	color: vars.$white;
 	background-repeat: no-repeat;
 	background-size: contain;
-
+	.fav--btn {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: none;
+		z-index: 99;
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
 	.card--overview {
 		margin-left: 1rem;
 		margin-bottom: 1rem;

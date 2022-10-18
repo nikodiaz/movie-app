@@ -12,7 +12,7 @@ import {
 	URL_TRENDING,
 } from '../../hooks/vars';
 
-const Home = () => {
+const Home = ({ addOrRemoveFav }) => {
 	const trendingToday = useFetch(
 		BASE_URL + URL_TRENDING + TYPE_MOVIE + API_KEY + LANGUAGE_SPA,
 	);
@@ -36,7 +36,11 @@ const Home = () => {
 					loading={trendingToday.loading}
 				/>
 				<Categories data={genres} />
-				<List data={discoverPopularMovies} title='Discover Movies' />
+				<List
+					data={discoverPopularMovies}
+					title='Discover Movies'
+					addOrRemoveFav={addOrRemoveFav}
+				/>
 			</div>
 		);
 	}

@@ -1,26 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Card.scss';
-import star from '../../assets/Icon/Star Fill.svg';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 const baseImg = 'https://image.tmdb.org/t/p/w780';
 
-const Card = ({ data, loading }) => {
+const Card = ({ data, loading, addOrRemoveFav }) => {
 	if (!loading) {
-		const starscount = data.vote_average;
 		const style = {
 			backgroundImage: `url(${baseImg}${data.poster_path})`,
 		};
 
 		return (
 			<Link to={`/movie/${data.id}`}>
-				<div className='card' style={style}>
+				<div
+					className='card'
+					style={style}
+					data-img-url={baseImg + data.poster_path}
+				>
+					<button
+						className='fav--btn'
+						data-movie-id={data.id}
+						onClick={addOrRemoveFav}
+					>
+						<AiOutlineStar></AiOutlineStar>
+					</button>
 					<div className='card--overview'>
 						<p className='rating'>
-							<img src={star} alt='rating' />
-							{starscount}
+							<AiFillStar />
+							{data.vote_average}
 						</p>
-						<h3>{data.title}</h3>
+						<h3 className='card--overview__title'>{data.title}</h3>
 					</div>
 				</div>
 			</Link>
