@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 //assets
 import logo from '../../assets/logo.svg';
 import home from '../../assets/Icon/Home.svg';
-import movies from '../../assets/Icon/Movie.svg';
-import series from '../../assets/Icon/TV.svg';
+// import movies from '../../assets/Icon/Movie.svg';
+// import series from '../../assets/Icon/TV.svg';
 import star from '../../assets/Icon/Star Stroke.svg';
 //style
 import './NavBar.scss';
@@ -22,16 +22,11 @@ const NavBar = () => {
 							<img src={home} alt='icon' />
 						</NavLink>
 					</li>
-					<li className='nav--item' title='Movies'>
+					{/* <li className='nav--item' title='Movies'>
 						<NavLink to='/movies'>
 							<img src={movies} alt='icon' />
 						</NavLink>
-					</li>
-					<li className='nav--item' title='Series'>
-						<NavLink to='/series'>
-							<img src={series} alt='icon' />
-						</NavLink>
-					</li>
+					</li> */}
 					<li className='nav--item' title='Favorites'>
 						<NavLink to='/favorites'>
 							<img src={star} alt='icon' />

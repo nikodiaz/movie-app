@@ -59,8 +59,8 @@ function App() {
 				(movie) => movie.id !== movieData.id,
 			);
 			localStorage.setItem('favsMovies', JSON.stringify(moviesLeft));
+			setFavorites(moviesLeft);
 		}
-		console.log(movieData);
 	};
 
 	return (

@@ -10,15 +10,16 @@ const SearchBar = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const keyword = e.currentTarget.keyword.value;
-		navigate(`/search=${keyword}`);
 		if (keyword === '') {
-			navigate('/');
+			console.log('Ingresa una búsqueda');
+		} else {
+			navigate(`/search=${keyword}`);
 		}
 		setVisible(false);
 	};
 
 	return (
-		<div className='search-bar'>
+		<div className='search-bar' onBlur={() => setVisible(false)}>
 			<form
 				onSubmit={handleSubmit}
 				className={`search-bar--container ${visible ? 'active' : ''}`}
