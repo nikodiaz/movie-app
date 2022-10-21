@@ -14,6 +14,7 @@ import Favorites from './routes/Favorites/Favorites';
 //import configureStore from './app/store';
 
 function App() {
+	//Agregar o remover de favoritos
 	const favsMovies = localStorage.getItem('favsMovies');
 	const [favorites, setFavorites] = useState([]);
 
@@ -62,6 +63,7 @@ function App() {
 			setFavorites(moviesLeft);
 		}
 	};
+	//Cambios en resolución de pantalla
 
 	return (
 		<>

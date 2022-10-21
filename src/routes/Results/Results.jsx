@@ -19,8 +19,6 @@ const Results = ({ title, addOrRemoveFav }) => {
 	const discoverByCategory = useFetch(
 		BASE_URL + URL_LIST + API_KEY + DISCOVER_MOVIES_BY_CATEGORY + category,
 	);
-	const favoritesMovies = localStorage.getItem('favsMovies');
-	console.log(favoritesMovies);
 
 	let results;
 

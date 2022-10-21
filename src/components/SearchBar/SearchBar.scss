@@ -4,8 +4,8 @@
 
 .search-bar {
 	position: absolute;
-	top: 1rem;
-	right: 5rem;
+	top: 2vh;
+	right: 5vw;
 	z-index: 99;
 	.search-bar--container {
 		position: relative;
@@ -59,6 +59,22 @@
 		.search-bar--input,
 		.search-bar--btn {
 			outline: none;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.search-bar {
+		.active {
+			right: 10vw;
+		}
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.search-bar {
+		.active {
+			right: 15vw;
 		}
 	}
 }

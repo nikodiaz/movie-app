@@ -81,5 +81,18 @@
 	left: 5vw;
 }
 .arrow-right {
-	right: 0;
+	right: 1vw;
+}
+
+@media screen and (max-width: 768px) {
+	.arrow-left {
+		display: none;
+	}
+	.slider {
+		.slider--overview {
+			.slider--status {
+				visibility: hidden;
+			}
+		}
+	}
 }

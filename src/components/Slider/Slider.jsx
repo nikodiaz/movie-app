@@ -20,7 +20,11 @@ const Slider = ({ data, loading }) => {
 		};
 		const items = data.results.slice(0, 5);
 		const style = {
-			backgroundImage: `url(${baseImg}${items[current].backdrop_path})`,
+			backgroundImage: `url(${baseImg}${
+				window.innerWidth > 768
+					? items[current].backdrop_path
+					: items[current].poster_path
+			})`,
 		};
 		return (
 			<>
@@ -38,7 +42,7 @@ const Slider = ({ data, loading }) => {
 							<img src={star} alt='rating' />
 							{starscount}
 						</p>
-						<p>{items[current].overview}</p>
+						<p>{items[current].overview.substring(0, 100)}...</p>
 						<div className='slider--status'>
 							<span
 								onClick={() => setCurrent(0)}

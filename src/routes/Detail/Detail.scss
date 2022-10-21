@@ -3,7 +3,7 @@
 @use '../../scss/vars';
 
 .detail {
-	padding: 2rem 4rem;
+	padding: 3rem 4rem;
 	color: vars.$white;
 	.detail--description {
 		display: flex;
@@ -48,8 +48,51 @@
 			flex-wrap: wrap;
 			gap: 2rem;
 			.trailer {
-				min-width: 350px;
+				width: 350px;
 				height: 200px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.detail {
+		.detail--description {
+			flex-direction: column;
+			.detail--overview {
+				box-sizing: border-box;
+				width: 90%;
+			}
+		}
+		.detail--trailers {
+			.detail--trailers__list {
+				.trailer {
+					width: 300px;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.detail {
+		.detail--description {
+			flex-direction: column;
+			.detail--overview {
+				box-sizing: border-box;
+				width: 100%;
+			}
+			.detail--poster {
+				width: 100%;
+			}
+		}
+		.detail--trailers {
+			.detail--trailers__list {
+				.trailer {
+					width: 250px;
+					height: auto;
+				}
 			}
 		}
 	}

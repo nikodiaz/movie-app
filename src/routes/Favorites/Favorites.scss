@@ -1,0 +1,16 @@
+@use '../../scss/normalize';
+@use '../../scss/mixins';
+@use '../../scss/vars';
+
+.favorites {
+	padding: 1rem 4rem;
+	color: vars.$white;
+	.favorites--title {
+		margin: 0;
+	}
+	.favorites--container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+	}
+}
