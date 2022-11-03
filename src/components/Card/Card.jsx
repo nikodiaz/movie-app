@@ -5,8 +5,8 @@ import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 const baseImg = 'https://image.tmdb.org/t/p/w780';
 
-const Card = ({ data, loading, addOrRemoveFav }) => {
-	if (!loading) {
+const Card = ({ data, addOrRemoveFav }) => {
+	if (data) {
 		const style = {
 			backgroundImage: `url(${baseImg}${data.poster_path})`,
 		};

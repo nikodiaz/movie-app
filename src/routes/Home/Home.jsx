@@ -1,49 +1,38 @@
 import Categories from '../../components/Categories/Categories';
 import List from '../../components/List/List';
 import Slider from '../../components/Slider/Slider';
-import useFetch from '../../hooks/useFetch';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import {
-	API_KEY,
-	BASE_URL,
-	LANGUAGE_SPA,
-	TYPE_MOVIE,
-	URL_MOVIE_CATEGORIES,
-	URL_POPULAR_MOVIE,
-	URL_TRENDING,
-} from '../../hooks/vars';
+	fetchPopularMovies,
+	fetchTrendingMovies,
+} from '../../redux/middleware';
 
 const Home = ({ addOrRemoveFav }) => {
-	const trendingToday = useFetch(
-		BASE_URL + URL_TRENDING + TYPE_MOVIE + API_KEY + LANGUAGE_SPA,
-	);
-	const discoverPopularMovies = useFetch(
-		BASE_URL + URL_POPULAR_MOVIE + API_KEY,
-	);
-	const movieCategories = useFetch(
-		BASE_URL + URL_MOVIE_CATEGORIES + API_KEY + LANGUAGE_SPA,
-	);
+	useEffect(() => {
+		dispatch(fetchTrendingMovies());
+		dispatch(fetchPopularMovies());
+	}, []); //eslint-disable-line
 
-	if (
-		!trendingToday.loading &&
-		!movieCategories.loading &&
-		!discoverPopularMovies.loading
-	) {
-		const genres = movieCategories.data.genres;
-		return (
-			<div style={{ position: 'relative' }}>
-				<Slider
-					data={trendingToday.data}
-					loading={trendingToday.loading}
-				/>
-				<Categories data={genres} />
-				<List
-					data={discoverPopularMovies}
-					title='Discover Movies'
-					addOrRemoveFav={addOrRemoveFav}
-				/>
-			</div>
-		);
-	}
+	const dispatch = useDispatch();
+	const { trending_movies, popular_movies } = useSelector((state) => state);
+
+	console.log(trending_movies);
+	return (
+		<div style={{ position: 'relative' }}>
+			{trending_movies.movies.results && popular_movies.movies.results && (
+				<>
+					<Slider data={trending_movies.movies.results} />
+					{/* <Categories data={movie_genres.genres} /> */}
+					<List
+						data={popular_movies.movies.results}
+						title='Discover Movies'
+						addOrRemoveFav={addOrRemoveFav}
+					/>
+				</>
+			)}
+		</div>
+	);
 };
 
 export default Home;

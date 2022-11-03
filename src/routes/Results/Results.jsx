@@ -6,18 +6,18 @@ import {
 	API_KEY,
 	API_KEY_ALT,
 	BASE_URL,
-	DISCOVER_MOVIES_BY_CATEGORY,
-	URL_LIST,
-	URL_SEARCH,
-} from '../../hooks/vars';
+	PARAMS_GENRE,
+	GET_MOVIE_BY,
+	GET_SEARCH,
+} from '../../services/vars';
 
 const Results = ({ title, addOrRemoveFav }) => {
 	const { search, category } = useParams();
 	const searchResults = useFetch(
-		BASE_URL + URL_SEARCH + search + API_KEY_ALT,
+		BASE_URL + GET_SEARCH + search + API_KEY_ALT,
 	);
 	const discoverByCategory = useFetch(
-		BASE_URL + URL_LIST + API_KEY + DISCOVER_MOVIES_BY_CATEGORY + category,
+		BASE_URL + GET_MOVIE_BY + API_KEY + PARAMS_GENRE + category,
 	);
 
 	let results;

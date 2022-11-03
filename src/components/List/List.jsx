@@ -7,17 +7,15 @@ const List = ({ data, title, addOrRemoveFav }) => {
 		<>
 			<h2 className='list--title'>{title}</h2>
 			<div className='list--container'>
-				{!data.loading &&
-					data.data.results.map((movie) => {
-						return (
-							<Card
-								key={movie.id}
-								data={movie}
-								loading={data.loading}
-								addOrRemoveFav={addOrRemoveFav}
-							/>
-						);
-					})}
+				{data.map((movie) => {
+					return (
+						<Card
+							key={movie.id}
+							data={movie}
+							addOrRemoveFav={addOrRemoveFav}
+						/>
+					);
+				})}
 			</div>
 		</>
 	);

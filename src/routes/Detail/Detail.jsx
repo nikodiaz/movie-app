@@ -5,27 +5,23 @@ import {
 	BASE_URL,
 	CAST_MAX_NUM,
 	IMG_POSTER_SMALL,
-	LANGUAGE_SPA,
-	URL_CAST,
-	URL_DETAIL_MOVIE,
-	URL_IMG,
-	URL_VIDEO,
+	PARAMS_LANG_SPA,
+	GET_CAST,
+	GET_MOVIE,
+	GET_IMG,
+	GET_VIDEO,
 	URL_YOUTUBE,
-} from '../../hooks/vars';
-import star from '../../assets/Icon/Star Fill.svg';
+} from '../../services/vars';
+import { AiFillStar } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
 
 const Detail = () => {
 	const { id } = useParams();
 	const detail = useFetch(
-		BASE_URL + URL_DETAIL_MOVIE + id + API_KEY + LANGUAGE_SPA,
+		BASE_URL + GET_MOVIE(id) + API_KEY + PARAMS_LANG_SPA,
 	);
-	const casts = useFetch(
-		BASE_URL + URL_DETAIL_MOVIE + id + URL_CAST + API_KEY,
-	);
-	const trailers = useFetch(
-		BASE_URL + URL_DETAIL_MOVIE + id + URL_VIDEO + API_KEY,
-	);
+	const casts = useFetch(BASE_URL + GET_MOVIE(id) + GET_CAST + API_KEY);
+	const trailers = useFetch(BASE_URL + GET_MOVIE(id) + GET_VIDEO + API_KEY);
 
 	if (!detail.loading && !casts.loading && !trailers.loading) {
 		const castToShow = casts.data.cast.slice(0, CAST_MAX_NUM);
@@ -40,7 +36,7 @@ const Detail = () => {
 						<img
 							alt='poster'
 							src={
-								URL_IMG +
+								GET_IMG +
 								IMG_POSTER_SMALL +
 								detail.data.poster_path
 							}
@@ -49,7 +45,7 @@ const Detail = () => {
 					<div className='detail--overview'>
 						<h1>{detail.data.title}</h1>
 						<p className='rating'>
-							<img src={star} alt='rating' />
+							<AiFillStar />
 							{detail.data.vote_average.toFixed(1)}
 						</p>
 						<h4>Overview</h4>
@@ -61,7 +57,7 @@ const Detail = () => {
 									<div key={actor.id} className='cast--item'>
 										<img
 											src={
-												URL_IMG +
+												GET_IMG +
 												IMG_POSTER_SMALL +
 												actor.profile_path
 											}
