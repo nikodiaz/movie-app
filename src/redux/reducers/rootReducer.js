@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import trendReducer from './trendReducer';
 import popularReducer from './popularReducer';
+import genresReducer from './genresReducer';
+import trendReducer from './trendReducer';
 
 const rootReducer = combineReducers({
-	trending_movies: trendReducer,
-	popular_movies: popularReducer,
+	popular: popularReducer,
+	genres: genresReducer,
+	trending: trendReducer,
 });
 
 export default rootReducer;

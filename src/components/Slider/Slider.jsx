@@ -39,7 +39,7 @@ const Slider = ({ data }) => {
 						<AiFillStar />
 						{data[current].vote_average.toFixed(1)}
 					</p>
-					<p>{items[current].overview.substring(0, 150)}...</p>
+					<p>{items[current].overview.substring(0, 220)}...</p>
 					<div className='slider--status'>
 						<span
 							onClick={() => setCurrent(0)}

@@ -4,33 +4,59 @@ import Slider from '../../components/Slider/Slider';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import {
+	fetchMovieGenres,
 	fetchPopularMovies,
 	fetchTrendingMovies,
-} from '../../redux/middleware';
+} from '../../redux/actions';
+import {
+	API_KEY,
+	BASE_URL,
+	GET_GENRES,
+	GET_MOVIE_POPULAR,
+	GET_TRENDING,
+	PARAMS_LANG_SPA,
+	TYPE_MOVIE,
+} from '../../services/vars';
 
 const Home = ({ addOrRemoveFav }) => {
 	useEffect(() => {
-		dispatch(fetchTrendingMovies());
-		dispatch(fetchPopularMovies());
+		dispatch(
+			fetchTrendingMovies(
+				BASE_URL +
+					GET_TRENDING +
+					TYPE_MOVIE +
+					API_KEY +
+					PARAMS_LANG_SPA,
+			),
+		);
+		dispatch(
+			fetchPopularMovies(
+				BASE_URL + GET_MOVIE_POPULAR + API_KEY + PARAMS_LANG_SPA,
+			),
+		);
+		dispatch(
+			fetchMovieGenres(BASE_URL + GET_GENRES + API_KEY + PARAMS_LANG_SPA),
+		);
 	}, []); //eslint-disable-line
 
 	const dispatch = useDispatch();
-	const { trending_movies, popular_movies } = useSelector((state) => state);
+	const { trending, popular, genres } = useSelector((state) => state);
 
-	console.log(trending_movies);
 	return (
 		<div style={{ position: 'relative' }}>
-			{trending_movies.movies.results && popular_movies.movies.results && (
-				<>
-					<Slider data={trending_movies.movies.results} />
-					{/* <Categories data={movie_genres.genres} /> */}
-					<List
-						data={popular_movies.movies.results}
-						title='Discover Movies'
-						addOrRemoveFav={addOrRemoveFav}
-					/>
-				</>
-			)}
+			{trending.movies.results &&
+				popular.movies.results &&
+				genres.genres.genres && (
+					<>
+						<Slider data={trending.movies.results} />
+						<Categories data={genres.genres.genres} />
+						<List
+							data={popular.movies.results}
+							title='Discover Movies'
+							addOrRemoveFav={addOrRemoveFav}
+						/>
+					</>
+				)}
 		</div>
 	);
 };
