@@ -1,17 +1,28 @@
+import { getData } from '../../services/getData';
 import {
+	FETCH_CAST,
+	FETCH_CAST_FAILURE,
+	FETCH_CAST_SUCCESS,
+	FETCH_DETAIL,
+	FETCH_DETAIL_FAILURE,
+	FETCH_DETAIL_SUCCESS,
 	FETCH_GENRES,
 	FETCH_GENRES_FAILURE,
 	FETCH_GENRES_SUCCESS,
 	FETCH_POPULAR,
 	FETCH_POPULAR_FAILURE,
 	FETCH_POPULAR_SUCCESS,
+	FETCH_TRAILERS,
+	FETCH_TRAILERS_FAILURE,
+	FETCH_TRAILERS_SUCCESS,
 	FETCH_TRENDING,
 	FETCH_TRENDING_FAILURE,
 	FETCH_TRENDING_SUCCESS,
 } from './types';
-import { getData } from '../../services/getData';
 
-//Action Creators
+///////////////////////
+////ACTION CREATORS////
+///////////////////////
 
 //Popular Movies
 
@@ -61,7 +72,57 @@ export const fetchGenresFailure = (error) => ({
 	payload: error,
 });
 
-//Asyncronous Request
+//Movie Detail
+
+export const fetchMovieDetail = () => ({
+	type: FETCH_DETAIL,
+});
+
+export const fetchMovieDetailSuccess = (response) => ({
+	type: FETCH_DETAIL_SUCCESS,
+	payload: response,
+});
+
+export const fetchMovieDetailFailure = (error) => ({
+	type: FETCH_DETAIL_FAILURE,
+	payload: error,
+});
+
+//Casts
+
+export const fetchMovieCast = () => ({
+	type: FETCH_CAST,
+});
+
+export const fetchMovieCastSuccess = (response) => ({
+	type: FETCH_CAST_SUCCESS,
+	payload: response,
+});
+
+export const fetchMovieCastFailure = (error) => ({
+	type: FETCH_CAST_FAILURE,
+	payload: error,
+});
+
+//Trailers
+
+export const fetchMovieTrailers = () => ({
+	type: FETCH_TRAILERS,
+});
+
+export const fetchMovieTrailersSuccess = (response) => ({
+	type: FETCH_TRAILERS_SUCCESS,
+	payload: response,
+});
+
+export const fetchMovieTrailersFailure = (error) => ({
+	type: FETCH_TRAILERS_FAILURE,
+	payload: error,
+});
+
+///////////////////////////
+////ASYNCRONOUS REQUEST////
+///////////////////////////
 
 export const fetchTrendingMovies = (url) => (dispatch) => {
 	dispatch(fetchTrending());
@@ -88,4 +149,31 @@ export const fetchMovieGenres = (url) => (dispatch) => {
 			dispatch(fetchGenresSuccess(res));
 		})
 		.catch((error) => fetchGenresFailure(error));
+};
+
+export const fetchDetail = (url) => (dispatch) => {
+	dispatch(fetchMovieDetail());
+	getData(url)
+		.then((res) => {
+			dispatch(fetchMovieDetailSuccess(res));
+		})
+		.catch((error) => dispatch(fetchMovieDetailFailure(error)));
+};
+
+export const fetchCast = (url) => (dispatch) => {
+	dispatch(fetchMovieCast());
+	getData(url)
+		.then((res) => {
+			dispatch(fetchMovieCastSuccess(res));
+		})
+		.catch((error) => dispatch(fetchMovieCastFailure(error)));
+};
+
+export const fetchTrailers = (url) => (dispatch) => {
+	dispatch(fetchMovieTrailers());
+	getData(url)
+		.then((res) => {
+			dispatch(fetchMovieTrailersSuccess(res));
+		})
+		.catch((error) => dispatch(fetchMovieTrailersFailure(error)));
 };

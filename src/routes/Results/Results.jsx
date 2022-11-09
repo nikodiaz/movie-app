@@ -11,8 +11,8 @@ import {
 	GET_SEARCH,
 } from '../../services/vars';
 
-const Results = ({ title, addOrRemoveFav }) => {
-	const { search, category } = useParams();
+const Results = ({ addOrRemoveFav }) => {
+	const { search, category, category_name } = useParams();
 	const searchResults = useFetch(
 		BASE_URL + GET_SEARCH + search + API_KEY_ALT,
 	);
@@ -21,12 +21,15 @@ const Results = ({ title, addOrRemoveFav }) => {
 	);
 
 	let results;
+	let title;
 
 	if (!searchResults.loading && !discoverByCategory.loading) {
 		if (!search) {
 			results = discoverByCategory.data.results;
+			title = category_name;
 		} else {
 			results = searchResults.data.results;
+			title = `Resultados de '${search}'...`;
 		}
 		return (
 			<div className='results'>

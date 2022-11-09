@@ -11,15 +11,16 @@ const SearchBar = () => {
 		e.preventDefault();
 		const keyword = e.currentTarget.keyword.value;
 		if (keyword === '') {
-			console.log('Ingresa una búsqueda');
+			setVisible(false);
 		} else {
 			navigate(`/search=${keyword}`);
+			e.currentTarget.keyword.value = '';
 		}
 		setVisible(false);
 	};
 
 	return (
-		<div className='search-bar' onBlur={() => setVisible(false)}>
+		<div className='search-bar'>
 			<form
 				onSubmit={handleSubmit}
 				className={`search-bar--container ${visible ? 'active' : ''}`}
@@ -29,15 +30,15 @@ const SearchBar = () => {
 					className='search-bar--input'
 					placeholder='Search...'
 					name='keyword'
+					onBlur={() => setVisible(false)}
 				/>
 				<button
-					type='button'
+					type={`${visible ? 'button' : 'submit'}`}
 					className='search-bar--btn'
 					onClick={() => {
 						setVisible(!visible);
 					}}
-				></button>
-				<button type='submit' className='search-bar--btn submit'>
+				>
 					<AiOutlineSearch></AiOutlineSearch>
 				</button>
 			</form>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 //Styles
 import 'typeface-roboto';
@@ -9,8 +10,8 @@ import Results from './routes/Results/Results';
 import Detail from './routes/Detail/Detail';
 import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
-import { useEffect, useState } from 'react';
 import Favorites from './routes/Favorites/Favorites';
+import NotFound from './routes/NotFound/NotFound';
 //import configureStore from './app/store';
 
 function App() {
@@ -63,7 +64,7 @@ function App() {
 			setFavorites(moviesLeft);
 		}
 	};
-	//Cambios en resolución de pantalla
+	//TODO: Cambios en resolución de pantalla
 
 	return (
 		<>
@@ -92,6 +93,7 @@ function App() {
 						/>
 					}
 				/>
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</>
 	);
