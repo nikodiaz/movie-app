@@ -1,13 +1,13 @@
-import Categories from '../../components/Categories/Categories';
-import List from '../../components/List/List';
-import Slider from '../../components/Slider/Slider';
+//libs
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+//store
 import {
 	fetchMovieGenres,
 	fetchPopularMovies,
 	fetchTrendingMovies,
 } from '../../redux/actions';
+//api querys
 import {
 	API_KEY,
 	BASE_URL,
@@ -17,6 +17,8 @@ import {
 	PARAMS_LANG_SPA,
 	TYPE_MOVIE,
 } from '../../services/vars';
+//component
+import HomeView from './HomeView';
 
 const Home = ({ addOrRemoveFav }) => {
 	useEffect(() => {
@@ -43,21 +45,18 @@ const Home = ({ addOrRemoveFav }) => {
 	const { trending, popular, genres } = useSelector((state) => state);
 
 	return (
-		<div style={{ position: 'relative' }}>
+		<>
 			{trending.movies.results &&
-				popular.movies.results &&
-				genres.genres.genres && (
-					<>
-						<Slider data={trending.movies.results} />
-						<Categories data={genres.genres.genres} />
-						<List
-							data={popular.movies.results}
-							title='Discover Movies'
-							addOrRemoveFav={addOrRemoveFav}
-						/>
-					</>
-				)}
-		</div>
+			popular.movies.results &&
+			genres.genres.genres ? (
+				<HomeView
+					addOrRemoveFav={addOrRemoveFav}
+					trending={trending.movies.results}
+					popular={popular.movies.results}
+					genres={genres.genres.genres}
+				/>
+			) : null}
+		</>
 	);
 };
 

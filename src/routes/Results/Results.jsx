@@ -1,7 +1,8 @@
-import './Results.scss';
+//libs
 import { useParams } from 'react-router-dom';
-import Card from '../../components/Card/Card';
-import useFetch from '../../hooks/useFetch';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+//api querys
 import {
 	API_KEY,
 	API_KEY_ALT,
@@ -10,43 +11,44 @@ import {
 	GET_MOVIE_BY,
 	GET_SEARCH,
 } from '../../services/vars';
+//store
+import { discoverByCategory, search } from '../../redux/actions';
+//component
+import ResultsView from './ResultsView';
+//style
+import './Results.scss';
 
 const Results = ({ addOrRemoveFav }) => {
-	const { search, category, category_name } = useParams();
-	const searchResults = useFetch(
-		BASE_URL + GET_SEARCH + search + API_KEY_ALT,
-	);
-	const discoverByCategory = useFetch(
-		BASE_URL + GET_MOVIE_BY + API_KEY + PARAMS_GENRE + category,
-	);
+	const { query, category, category_name } = useParams();
+	const { searched, by_genre } = useSelector((state) => state);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(search(BASE_URL + GET_SEARCH + query + API_KEY_ALT));
+		dispatch(
+			discoverByCategory(
+				BASE_URL + GET_MOVIE_BY + API_KEY + PARAMS_GENRE + category,
+			),
+		);
+	}, [query, category]); //eslint-disable-line
 
 	let results;
 	let title;
 
-	if (!searchResults.loading && !discoverByCategory.loading) {
-		if (!search) {
-			results = discoverByCategory.data.results;
+	if (searched.movies.results && by_genre.movies.results) {
+		if (!query) {
+			results = by_genre.movies.results;
 			title = category_name;
 		} else {
-			results = searchResults.data.results;
-			title = `Resultados de '${search}'...`;
+			results = searched.movies.results;
+			title = `Resultados de '${query}'...`;
 		}
 		return (
-			<div className='results'>
-				<h2 className='results--title'>{title}</h2>
-				<div className='results--container'>
-					{results.map((item) => {
-						return (
-							<Card
-								key={item.id}
-								data={item}
-								loading={item.loading}
-								addOrRemoveFav={addOrRemoveFav}
-							/>
-						);
-					})}
-				</div>
-			</div>
+			<ResultsView
+				results={results}
+				title={title}
+				addOrRemoveFav={addOrRemoveFav}
+			/>
 		);
 	}
 };

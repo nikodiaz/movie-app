@@ -5,6 +5,8 @@ import trendReducer from './trend';
 import detailReducer from './detail';
 import castReducer from './cast';
 import trailerReducer from './trailers';
+import searchReducer from './search';
+import byGenreReducer from './byGenre';
 
 const rootReducer = combineReducers({
 	popular: popularReducer,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
 	movie: detailReducer,
 	cast: castReducer,
 	trailers: trailerReducer,
+	searched: searchReducer,
+	by_genre: byGenreReducer,
 });
 
 export default rootReducer;

@@ -1,17 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
 //Styles
 import 'typeface-roboto';
+import AppView from './AppView';
 import './scss/App.scss';
 
-//Components
-import Home from './routes/Home/Home';
-import Results from './routes/Results/Results';
-import Detail from './routes/Detail/Detail';
-import NavBar from './components/NavBar/NavBar';
-import SearchBar from './components/SearchBar/SearchBar';
-import Favorites from './routes/Favorites/Favorites';
-import NotFound from './routes/NotFound/NotFound';
 //import configureStore from './app/store';
 
 function App() {
@@ -64,37 +56,10 @@ function App() {
 			setFavorites(moviesLeft);
 		}
 	};
-	//TODO: Cambios en resolución de pantalla
 
 	return (
 		<>
-			<SearchBar />
-			<NavBar />
-			<Routes>
-				<Route
-					path='/'
-					element={<Home addOrRemoveFav={addOrRemoveFav} />}
-				/>
-				<Route path='/movie/:id' element={<Detail />} />
-				<Route
-					path='/search=:search'
-					element={<Results addOrRemoveFav={addOrRemoveFav} />}
-				/>
-				<Route
-					path='/:category_name/:category'
-					element={<Results addOrRemoveFav={addOrRemoveFav} />}
-				/>
-				<Route
-					path='/favorites'
-					element={
-						<Favorites
-							addOrRemoveFav={addOrRemoveFav}
-							favorites={favorites}
-						/>
-					}
-				/>
-				<Route path='*' element={<NotFound />} />
-			</Routes>
+			<AppView addOrRemoveFav={addOrRemoveFav} favorites={favorites} />
 		</>
 	);
 }
