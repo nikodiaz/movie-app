@@ -3,13 +3,13 @@
 @use '../../scss/vars';
 
 .list--title {
-	margin-left: 4rem;
+	margin-left: 5rem;
 	color: vars.$white;
 }
 .list--container {
 	display: flex;
 	gap: 1rem;
-	margin: 0 4rem;
+	margin: 0 5rem;
 	padding-bottom: 1rem;
 	padding-right: 2rem;
 	overflow-x: scroll;

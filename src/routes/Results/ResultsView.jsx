@@ -4,7 +4,7 @@ import Card from '../../components/Card/Card';
 const ResultsView = ({ addOrRemoveFav, results, title }) => {
 	return (
 		<div className='results'>
-			<h2 className='results--title'>{title}</h2>
+			<h1 className='results--title'>{title}</h1>
 			<div className='results--container'>
 				{results.map((item) => {
 					return (

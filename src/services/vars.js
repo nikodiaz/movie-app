@@ -1,6 +1,7 @@
 export const BASE_URL = 'https://api.themoviedb.org/3/';
 export const API_KEY = '?api_key=2401a0e43ad659da80761c5b927e5930';
 export const API_KEY_ALT = '&api_key=2401a0e43ad659da80761c5b927e5930';
+export const PAGE = (n) => `&page=${n}`;
 
 export const GET_MOVIE_BY = 'discover/movie';
 export const GET_GENRES = 'genre/movie/list';

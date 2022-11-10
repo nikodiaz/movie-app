@@ -1,6 +1,6 @@
 //libs
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //api querys
 import {
@@ -10,6 +10,7 @@ import {
 	PARAMS_GENRE,
 	GET_MOVIE_BY,
 	GET_SEARCH,
+	PAGE,
 } from '../../services/vars';
 //store
 import { discoverByCategory, search } from '../../redux/actions';
@@ -17,38 +18,57 @@ import { discoverByCategory, search } from '../../redux/actions';
 import ResultsView from './ResultsView';
 //style
 import './Results.scss';
+import Layout from '../../components/Layout/Layout';
+import Pagination from '../../components/Pagination/Pagination';
 
 const Results = ({ addOrRemoveFav }) => {
 	const { query, category, category_name } = useParams();
 	const { searched, by_genre } = useSelector((state) => state);
+	const [page, setPage] = useState(1);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(search(BASE_URL + GET_SEARCH + query + API_KEY_ALT));
+		dispatch(
+			search(BASE_URL + GET_SEARCH + query + API_KEY_ALT + PAGE(page)),
+		);
 		dispatch(
 			discoverByCategory(
-				BASE_URL + GET_MOVIE_BY + API_KEY + PARAMS_GENRE + category,
+				BASE_URL +
+					GET_MOVIE_BY +
+					API_KEY +
+					PARAMS_GENRE +
+					category +
+					PAGE(page),
 			),
 		);
-	}, [query, category]); //eslint-disable-line
+		window.scrollTo(0, 0);
+	}, [query, category, page]); //eslint-disable-line
 
 	let results;
 	let title;
 
 	if (searched.movies.results && by_genre.movies.results) {
 		if (!query) {
-			results = by_genre.movies.results;
+			results = by_genre.movies;
 			title = category_name;
 		} else {
-			results = searched.movies.results;
+			results = searched.movies;
 			title = `Resultados de '${query}'...`;
 		}
 		return (
-			<ResultsView
-				results={results}
-				title={title}
-				addOrRemoveFav={addOrRemoveFav}
-			/>
+			<Layout>
+				<ResultsView
+					results={results.results}
+					title={title}
+					addOrRemoveFav={addOrRemoveFav}
+				/>
+				<Pagination
+					page={results.page}
+					total_pages={results.total_pages}
+					next={() => setPage(page + 1)}
+					prev={() => setPage(page - 1)}
+				/>
+			</Layout>
 		);
 	}
 };

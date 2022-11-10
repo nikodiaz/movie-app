@@ -3,8 +3,6 @@
 @use '../../scss/vars';
 
 .categories {
-	margin: 0 4rem;
-	color: vars.$white;
 	.categories--tags {
 		display: flex;
 		flex-wrap: wrap;

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import './Categories.scss';
+import Layout from '../Layout/Layout';
 
 const Categories = ({ data }) => {
 	return (
-		<>
+		<Layout>
 			<div className='categories'>
 				<h2>Categories</h2>
 				<div className='categories--tags'>
@@ -21,7 +22,7 @@ const Categories = ({ data }) => {
 					})}
 				</div>
 			</div>
-		</>
+		</Layout>
 	);
 };
 

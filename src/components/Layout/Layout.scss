@@ -1,0 +1,8 @@
+@use '../../scss/normalize';
+@use '../../scss/mixins';
+@use '../../scss/vars';
+
+.main-layout {
+	padding: 3rem 6rem;
+	color: vars.$white;
+}

@@ -1,7 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import './Card.scss';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import './Card.scss';
 
 const baseImg = 'https://image.tmdb.org/t/p/w780';
 

@@ -17,6 +17,7 @@ import {
 	GET_MOVIE,
 	GET_VIDEO,
 } from '../../services/vars';
+import Layout from '../../components/Layout/Layout';
 
 const Detail = () => {
 	const { id } = useParams();
@@ -36,11 +37,13 @@ const Detail = () => {
 		);
 
 		return (
-			<DetailView
-				youtubeTrailer={youtubeTrailer}
-				movie={movie.data}
-				cast={cast.data.cast}
-			/>
+			<Layout>
+				<DetailView
+					youtubeTrailer={youtubeTrailer}
+					movie={movie.data}
+					cast={cast.data.cast}
+				/>
+			</Layout>
 		);
 	}
 	return;
