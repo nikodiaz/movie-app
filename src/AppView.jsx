@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
-import Detail from './routes/Detail/Detail';
-import Favorites from './routes/Favorites/Favorites';
-import Home from './routes/Home/Home';
-import NotFound from './routes/NotFound/NotFound';
-import Results from './routes/Results/Results';
+import Detail from './Pages/Detail/Detail';
+import Favorites from './Pages/Favorites';
+import Home from './Pages/Home/Home';
+import NotFound from './Pages/NotFound';
+import Results from './Pages/Results/Results';
 
 const AppView = ({ addOrRemoveFav, favorites }) => {
 	return (

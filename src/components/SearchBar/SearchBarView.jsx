@@ -1,5 +1,4 @@
 import { AiOutlineSearch } from 'react-icons/ai';
-import './SearchBar.scss';
 
 const SearchBarView = ({
 	onSubmit,
@@ -13,7 +12,7 @@ const SearchBarView = ({
 		<div className='search-bar'>
 			<form
 				onSubmit={onSubmit}
-				className={`search-bar--container ${visible ? 'active' : ''}`}
+				className={`search-bar-container ${visible ? 'active' : ''}`}
 			>
 				<input
 					type='text'

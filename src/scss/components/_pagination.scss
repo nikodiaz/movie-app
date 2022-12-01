@@ -1,0 +1,16 @@
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	margin-top: 4rem;
+	button {
+		padding: 0.3rem 1rem;
+		font-size: 1.2rem;
+		background: $red;
+		border: none;
+		color: $white;
+		border-radius: 15px;
+		outline: none;
+	}
+}

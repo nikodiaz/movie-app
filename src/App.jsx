@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 //Styles
 import 'typeface-roboto';
 import AppView from './AppView';
-import './scss/App.scss';
+import './scss/index.scss';
 
 //import configureStore from './app/store';
 

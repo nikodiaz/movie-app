@@ -1,0 +1,55 @@
+a {
+	text-decoration: none;
+	&:focus {
+		outline: none;
+	}
+}
+.card {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	width: 12rem;
+	height: 18rem;
+	text-align: left;
+	color: $white;
+	background-repeat: no-repeat;
+	background-size: contain;
+	.fav--btn {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: none;
+		z-index: 98;
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+	&-overview {
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+		z-index: 9;
+		p,
+		h3 {
+			margin: 0.5rem;
+		}
+	}
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		content: '';
+		background-image: linear-gradient(
+			rgba(0, 0, 0, 0.1),
+			rgba(0, 0, 0, 0.6)
+		);
+	}
+}

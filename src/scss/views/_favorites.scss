@@ -1,0 +1,11 @@
+.favorites {
+	color: $white;
+	&-title {
+		margin: 0;
+	}
+	&-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+	}
+}
