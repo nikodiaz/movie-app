@@ -4,7 +4,7 @@ import {
 	GET_IMG,
 	IMG_POSTER_SMALL,
 	URL_YOUTUBE,
-} from '../../services/vars';
+} from '../../store/vars';
 
 const DetailView = ({ movie, cast, youtubeTrailer }) => {
 	return (

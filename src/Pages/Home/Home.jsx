@@ -1,62 +1,35 @@
-//libs
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 //store
-import {
-	fetchMovieGenres,
-	fetchPopularMovies,
-	fetchTrendingMovies,
-} from '../../redux/actions';
-//api querys
-import {
-	API_KEY,
-	BASE_URL,
-	GET_GENRES,
-	GET_MOVIE_POPULAR,
-	GET_TRENDING,
-	PARAMS_LANG_SPA,
-	TYPE_MOVIE,
-} from '../../services/vars';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTrendingMovies } from '../../store/Slices/trend/thunks';
+import { fetchPopularMovies } from '../../store/Slices/popular/thunks';
+import { fetchMovieGenres } from '../../store/Slices/genres/thunks';
 //component
 import HomeView from './HomeView';
 import Loader from '../../components/Loader';
 
 const Home = ({ addOrRemoveFav }) => {
-	useEffect(() => {
-		dispatch(
-			fetchTrendingMovies(
-				BASE_URL +
-					GET_TRENDING +
-					TYPE_MOVIE +
-					API_KEY +
-					PARAMS_LANG_SPA,
-			),
-		);
-		dispatch(
-			fetchPopularMovies(
-				BASE_URL + GET_MOVIE_POPULAR + API_KEY + PARAMS_LANG_SPA,
-			),
-		);
-		dispatch(
-			fetchMovieGenres(BASE_URL + GET_GENRES + API_KEY + PARAMS_LANG_SPA),
-		);
-	}, []); //eslint-disable-line
-
 	const dispatch = useDispatch();
-	const { trending, popular, genres } = useSelector((state) => state);
+	const { trend, popular, genres } = useSelector((state) => state);
+
+	useEffect(() => {
+		dispatch(fetchTrendingMovies());
+		dispatch(fetchPopularMovies());
+		dispatch(fetchMovieGenres());
+	}, [dispatch]);
 
 	return (
 		<>
-			{trending.loading || popular.loading || genres.loading ? (
+			{trend.loading || popular.loading || genres.loading ? (
 				<Loader />
 			) : null}
-			{trending.movies.results &&
-			popular.movies.results &&
+			{trend.data.results &&
+			popular.data.results &&
 			genres.genres.genres ? (
 				<HomeView
 					addOrRemoveFav={addOrRemoveFav}
-					trending={trending.movies.results}
-					popular={popular.movies.results}
+					trending={trend.data.results}
+					popular={popular.data.results}
 					genres={genres.genres.genres}
 				/>
 			) : null}

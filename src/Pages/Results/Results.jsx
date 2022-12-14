@@ -1,71 +1,71 @@
 //libs
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-//api querys
-import {
-	API_KEY,
-	API_KEY_ALT,
-	BASE_URL,
-	PARAMS_GENRE,
-	GET_MOVIE_BY,
-	GET_SEARCH,
-	PAGE,
-} from '../../services/vars';
 //store
-import { discoverByCategory, search } from '../../redux/actions';
+import { searchMovies } from '../../store/Slices/search/thunks';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchByGenreMovies } from '../../store/Slices/byGenre/thunks';
 //component
 import ResultsView from './ResultsView';
 import Layout from '../../components/Layout/Layout';
 import Pagination from '../../components/Pagination';
+import Card from '../../components/Card';
+import Loader from '../../components/Loader';
 
 const Results = ({ addOrRemoveFav }) => {
-	const { query, category, category_name } = useParams();
-	const { searched, by_genre } = useSelector((state) => state);
-	const [page, setPage] = useState(1);
 	const dispatch = useDispatch();
+	const { search, byGenre } = useSelector((state) => state);
+	const { query, category, category_name } = useParams();
+	const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		dispatch(
-			search(BASE_URL + GET_SEARCH + query + API_KEY_ALT + PAGE(page)),
-		);
-		dispatch(
-			discoverByCategory(
-				BASE_URL +
-					GET_MOVIE_BY +
-					API_KEY +
-					PARAMS_GENRE +
-					category +
-					PAGE(page),
-			),
-		);
+		dispatch(searchMovies(page, query));
+		dispatch(fetchByGenreMovies(page, category));
 		window.scrollTo(0, 0);
-	}, [query, category, page]); //eslint-disable-line
+	}, [query, category, page, dispatch]);
 
 	let results;
 	let title;
 
-	if (searched.movies.results && by_genre.movies.results) {
+	if (search.data.results || byGenre.data.results) {
 		if (!query) {
-			results = by_genre.movies;
+			results = byGenre.data;
 			title = category_name;
 		} else {
-			results = searched.movies;
+			results = search.data;
 			title = `Resultados de '${query}'...`;
 		}
+
 		return (
 			<Layout>
-				<ResultsView
-					results={results.results}
-					title={title}
-					addOrRemoveFav={addOrRemoveFav}
-				/>
-				<Pagination
-					page={results.page}
-					total_pages={results.total_pages}
-					next={() => setPage(page + 1)}
-					prev={() => setPage(page - 1)}
-				/>
+				{results.results ? (
+					<>
+						<ResultsView
+							results={results.results}
+							title={title}
+							addOrRemoveFav={addOrRemoveFav}
+						>
+							{results.results.map((item) => {
+								return (
+									<Card
+										key={item.id}
+										data={item}
+										loading={item.loading}
+										addOrRemoveFav={addOrRemoveFav}
+									/>
+								);
+							})}
+						</ResultsView>
+						<Pagination
+							page={results.page}
+							total_pages={results.total_pages}
+							next={() => setPage(page + 1)}
+							prev={() => setPage(page - 1)}
+						/>
+					</>
+				) : (
+					<Loader />
+				)}
 			</Layout>
 		);
 	}
