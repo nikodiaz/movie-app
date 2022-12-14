@@ -21,11 +21,13 @@ const genresReducer = (state = initialState, action) => {
 			return {
 				...state,
 				genres: action.payload,
+				loading: false,
 			};
 		case FETCH_GENRES_FAILURE:
 			return {
 				...state,
 				error: action.payload,
+				loading: false,
 			};
 
 		default:

@@ -8,7 +8,7 @@ import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound';
 import Results from './Pages/Results/Results';
 
-const AppView = ({ addOrRemoveFav, favorites }) => {
+const AppView = ({ addOrRemoveFav, favorites, ids }) => {
 	return (
 		<>
 			<SearchBar />

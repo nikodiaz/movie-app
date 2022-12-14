@@ -1,25 +1,11 @@
-import { Link } from 'react-router-dom';
 import Layout from './Layout/Layout';
 
-const Categories = ({ data }) => {
+const Categories = ({ children }) => {
 	return (
 		<Layout>
 			<div className='categories'>
 				<h2>Categories</h2>
-				<div className='categories-tags'>
-					{data.map((genre) => {
-						return (
-							<Link
-								to={`/${genre.name}/${genre.id}`}
-								key={genre.id}
-								className='tag'
-								data-id={genre.id}
-							>
-								{genre.name}
-							</Link>
-						);
-					})}
-				</div>
+				<div className='categories-tags'>{children}</div>
 			</div>
 		</Layout>
 	);

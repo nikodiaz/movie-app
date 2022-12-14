@@ -56,10 +56,15 @@ function App() {
 			setFavorites(moviesLeft);
 		}
 	};
+	const ids = JSON.parse(favsMovies).map((item) => item.id);
 
 	return (
 		<>
-			<AppView addOrRemoveFav={addOrRemoveFav} favorites={favorites} />
+			<AppView
+				addOrRemoveFav={addOrRemoveFav}
+				favorites={favorites}
+				ids={ids}
+			/>
 		</>
 	);
 }

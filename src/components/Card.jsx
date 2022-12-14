@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
+import { HiBookmark, HiOutlineBookmark } from 'react-icons/hi';
 
 const baseImg = 'https://image.tmdb.org/t/p/w780';
 
-const Card = ({ data, addOrRemoveFav }) => {
+const Card = ({ data, addOrRemoveFav, loading }) => {
+	const favsMovies = JSON.parse(localStorage.getItem('favsMovies'));
+	const isAdded = favsMovies.some((item) => Number(item.id) === data.id);
+
 	if (data) {
 		const style = {
 			backgroundImage: `url(${baseImg}${data.poster_path})`,
@@ -21,7 +25,7 @@ const Card = ({ data, addOrRemoveFav }) => {
 						data-movie-id={data.id}
 						onClick={addOrRemoveFav}
 					>
-						<AiOutlineStar></AiOutlineStar>
+						{isAdded ? <HiBookmark /> : <HiOutlineBookmark />}
 					</button>
 					<div className='card-overview'>
 						<p className='rating'>

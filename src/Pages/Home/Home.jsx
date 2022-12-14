@@ -19,6 +19,7 @@ import {
 } from '../../services/vars';
 //component
 import HomeView from './HomeView';
+import Loader from '../../components/Loader';
 
 const Home = ({ addOrRemoveFav }) => {
 	useEffect(() => {
@@ -46,6 +47,9 @@ const Home = ({ addOrRemoveFav }) => {
 
 	return (
 		<>
+			{trending.loading || popular.loading || genres.loading ? (
+				<Loader />
+			) : null}
 			{trending.movies.results &&
 			popular.movies.results &&
 			genres.genres.genres ? (
