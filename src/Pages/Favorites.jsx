@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import Layout from '../components/Layout/Layout';
 
-const Favorites = ({ favorites, addOrRemoveFav }) => {
+const Favorites = ({ favorites }) => {
 	return (
 		<Layout>
 			<div className='favorites'>
@@ -9,13 +9,12 @@ const Favorites = ({ favorites, addOrRemoveFav }) => {
 				<div className='favorites-movies'>
 					<h2>Películas favoritas</h2>
 					<div className='favorites-container'>
-						{favorites.map((item) => {
+						{favorites.movies.map((item) => {
 							return (
 								<Card
 									key={item.id}
 									data={item}
 									loading={item.loading}
-									addOrRemoveFav={addOrRemoveFav}
 								/>
 							);
 						})}

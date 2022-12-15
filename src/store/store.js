@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import byGenreSlice from './Slices/byGenre/byGenreSlice';
 import castSlice from './Slices/cast/castSlice';
 import detailSlice from './Slices/detail/detailSlice';
+import favsSlice from './Slices/favs/favsSlice';
 import genreSlice from './Slices/genres/genreSlice';
 import popSlice from './Slices/popular/popSlice';
 import searchSlice from './Slices/search/searchSlice';
@@ -18,6 +19,7 @@ const store = configureStore({
 		cast: castSlice.reducer,
 		search: searchSlice.reducer,
 		byGenre: byGenreSlice.reducer,
+		favs: favsSlice.reducer,
 	},
 });
 

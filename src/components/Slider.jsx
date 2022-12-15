@@ -37,6 +37,9 @@ const Slider = ({ data }) => {
 					<p className='rating'>
 						<AiFillStar />
 						{data[current].vote_average.toFixed(1)}
+						<span>
+							{data[current].title ? 'Movie' : 'Tv Serie'}
+						</span>
 					</p>
 					<p>{items[current].overview.substring(0, 220)}...</p>
 					<div className='slider--status'>

@@ -1,20 +1,5 @@
-a {
-	text-decoration: none;
-	color: inherit;
-	&:focus {
-		outline: none;
-	}
-}
 .card {
 	position: relative;
-	display: flex;
-	align-items: flex-end;
-	width: 12rem;
-	height: 18rem;
-	text-align: left;
-	color: $white;
-	background-repeat: no-repeat;
-	background-size: contain;
 	.fav--btn {
 		position: absolute;
 		top: 0.5rem;
@@ -27,11 +12,22 @@ a {
 		background: transparent;
 		border-radius: 50%;
 		border: none;
-		z-index: 98;
+		z-index: 99;
+		.added {
+			color: $red;
+		}
 		svg {
 			width: 32px;
 			height: 32px;
 			color: $white;
+		}
+	}
+	.card-link {
+		text-decoration: none;
+		color: inherit;
+		z-index: 9;
+		&:focus {
+			outline: none;
 		}
 	}
 	&-overview {
@@ -43,16 +39,26 @@ a {
 			margin: 0.5rem;
 		}
 	}
-	&::before {
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		content: '';
-		background-image: linear-gradient(
-			rgba(0, 0, 0, 0.1),
-			rgba(0, 0, 0, 0.6)
-		);
+	.card-container {
+		display: flex;
+		align-items: flex-end;
+		width: 12rem;
+		height: 18rem;
+		text-align: left;
+		color: $white;
+		background-repeat: no-repeat;
+		background-size: contain;
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			content: '';
+			background-image: linear-gradient(
+				rgba(0, 0, 0, 0.1),
+				rgba(0, 0, 0, 0.6)
+			);
+		}
 	}
 }

@@ -33,5 +33,6 @@ export const IMG_POSTER_LARGE = 'w780';
 export const IMG_POSTER_ORIGINAL = 'original';
 
 export const TYPE_MOVIE = 'movie/day';
+export const TYPE_ALL = 'all/day';
 export const CAST_MAX_NUM = 5;
 export const TRAILER_MAX_NUM = 3;

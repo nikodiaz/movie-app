@@ -8,7 +8,7 @@ import {
 const urlTrend =
 	api.BASE_URL +
 	api.GET_TRENDING +
-	api.TYPE_MOVIE +
+	api.TYPE_ALL +
 	api.API_KEY +
 	api.PARAMS_LANG_SPA;
 
