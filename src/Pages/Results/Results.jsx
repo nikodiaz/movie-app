@@ -2,9 +2,9 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 //store
-import { searchMovies } from '../../store/Slices/search/thunks';
+import { searchMovies } from '../../store/Slices/search';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchByGenreMovies } from '../../store/Slices/byGenre/thunks';
+import { fetchByGenreMovies } from '../../store/Slices/movies';
 //component
 import ResultsView from './ResultsView';
 import Layout from '../../components/Layout/Layout';
@@ -14,7 +14,8 @@ import Loader from '../../components/Loader';
 
 const Results = ({ addOrRemoveFav }) => {
 	const dispatch = useDispatch();
-	const { search, byGenre } = useSelector((state) => state);
+	const { search } = useSelector((state) => state);
+	const { movies } = useSelector((state) => state.movies);
 	const { query, category, category_name } = useParams();
 	const [page, setPage] = useState(1);
 
@@ -27,9 +28,9 @@ const Results = ({ addOrRemoveFav }) => {
 	let results;
 	let title;
 
-	if (search.data.results || byGenre.data.results) {
+	if (search.data.results || movies.by_genre.results) {
 		if (!query) {
-			results = byGenre.data;
+			results = movies.by_genre;
 			title = category_name;
 		} else {
 			results = search.data;
@@ -40,18 +41,13 @@ const Results = ({ addOrRemoveFav }) => {
 			<Layout>
 				{results.results ? (
 					<>
-						<ResultsView
-							results={results.results}
-							title={title}
-							addOrRemoveFav={addOrRemoveFav}
-						>
+						<ResultsView results={results.results} title={title}>
 							{results.results.map((item) => {
 								return (
 									<Card
 										key={item.id}
 										data={item}
 										loading={item.loading}
-										addOrRemoveFav={addOrRemoveFav}
 									/>
 								);
 							})}

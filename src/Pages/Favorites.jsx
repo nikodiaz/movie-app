@@ -19,6 +19,18 @@ const Favorites = ({ favorites }) => {
 							);
 						})}
 					</div>
+					<h2>Series favoritas</h2>
+					<div className='favorites-container'>
+						{favorites.tvSeries.map((item) => {
+							return (
+								<Card
+									key={item.id}
+									data={item}
+									loading={item.loading}
+								/>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</Layout>
