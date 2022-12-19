@@ -4,22 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import SearchBarView from './SearchBarView';
 
 const SearchBar = () => {
-	const [visible, setVisible] = useState(false);
 	const [search, setSearch] = useState('');
 	const navigate = useNavigate();
-
-	const handleBlur = () => {
-		setVisible(false);
-		setSearch('');
-	};
-
-	const handleClick = (e) => {
-		setVisible(true);
-		const btn = e.currentTarget;
-		const form = btn.parentElement;
-		const input = form.querySelector('input');
-		input.focus();
-	};
 
 	const handleChange = (e) => {
 		e.preventDefault();
@@ -30,22 +16,18 @@ const SearchBar = () => {
 		e.preventDefault();
 		const keyword = e.currentTarget.keyword.value;
 		if (keyword === '') {
-			setVisible(false);
+			console.log('Ingresa una búsqueda');
 		} else {
 			navigate(`/search=${keyword}`);
 			setSearch('');
 		}
-		setVisible(false);
 	};
 
 	return (
 		<SearchBarView
 			onSubmit={handleSubmit}
-			onClick={handleClick}
-			visible={visible}
 			search={search}
 			onChange={handleChange}
-			onBlur={handleBlur}
 		/>
 	);
 };

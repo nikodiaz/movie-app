@@ -12,7 +12,7 @@ import Pagination from '../../components/Pagination';
 import Card from '../../components/Card';
 import Loader from '../../components/Loader';
 
-const Results = ({ addOrRemoveFav }) => {
+const Results = () => {
 	const dispatch = useDispatch();
 	const { search } = useSelector((state) => state);
 	const { movies } = useSelector((state) => state.movies);

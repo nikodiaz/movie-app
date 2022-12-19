@@ -10,7 +10,6 @@ import Detail from './Pages/Detail/Detail';
 import Results from './Pages/Results/Results';
 import Favorites from './Pages/Favorites';
 import NotFound from './Pages/NotFound';
-import SearchBar from './components/SearchBar/SearchBar';
 import NavBar from './components/NavBar';
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
 
 	return (
 		<>
-			<SearchBar />
 			<NavBar />
 			<Routes>
 				<Route path='/' element={<Home />} />

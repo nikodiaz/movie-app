@@ -1,19 +1,9 @@
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const SearchBarView = ({
-	onSubmit,
-	visible,
-	onClick,
-	search,
-	onChange,
-	onBlur,
-}) => {
+const SearchBarView = ({ onSubmit, onClick, search, onChange }) => {
 	return (
 		<div className='search-bar'>
-			<form
-				onSubmit={onSubmit}
-				className={`search-bar-container ${visible ? 'active' : ''}`}
-			>
+			<form onSubmit={onSubmit} className='search-bar-container'>
 				<input
 					type='text'
 					className='search-bar--input'
@@ -21,10 +11,9 @@ const SearchBarView = ({
 					name='keyword'
 					onChange={onChange}
 					value={search}
-					onBlur={onBlur}
 				/>
 				<button
-					type={`${visible ? 'button' : 'submit'}`}
+					type='submit'
 					className='search-bar--btn'
 					onClick={onClick}
 				>

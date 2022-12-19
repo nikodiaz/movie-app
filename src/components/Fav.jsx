@@ -1,11 +1,11 @@
 import React from 'react';
-import { HiBookmark, HiOutlineBookmark } from 'react-icons/hi';
+import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 
 const Fav = ({ handleClick, movieIsAdded }) => {
 	const icon = movieIsAdded ? (
-		<HiBookmark className='added' />
+		<BsFillBookmarkFill className='added' />
 	) : (
-		<HiOutlineBookmark />
+		<BsBookmark />
 	);
 	return (
 		<button className='fav--btn' onClick={handleClick}>

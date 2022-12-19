@@ -3,12 +3,14 @@ import List from '../../components/List';
 import Slider from '../../components/Slider';
 import Card from '../../components/Card';
 import { Link } from 'react-router-dom';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
-const HomeView = ({ trending, popular, genres, addOrRemoveFav }) => {
+const HomeView = ({ trending, popular, genres }) => {
 	return (
 		<div style={{ position: 'relative' }}>
 			<>
 				<Slider data={trending} />
+				<SearchBar />
 				<Categories>
 					{genres.map((genre) => {
 						return (
@@ -23,15 +25,9 @@ const HomeView = ({ trending, popular, genres, addOrRemoveFav }) => {
 						);
 					})}
 				</Categories>
-				<List title='Discover Movies' addOrRemoveFav={addOrRemoveFav}>
+				<List title='Discover Movies'>
 					{popular.map((movie) => {
-						return (
-							<Card
-								key={movie.id}
-								data={movie}
-								addOrRemoveFav={addOrRemoveFav}
-							/>
-						);
+						return <Card key={movie.id} data={movie} />;
 					})}
 				</List>
 			</>
