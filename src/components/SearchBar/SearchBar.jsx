@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 import SearchBarView from './SearchBarView';
@@ -16,7 +17,12 @@ const SearchBar = () => {
 		e.preventDefault();
 		const keyword = e.currentTarget.keyword.value;
 		if (keyword === '') {
-			console.log('Ingresa una búsqueda');
+			toast.error('Ingresa una búsqueda!', {
+				style: {
+					background: '#1d1d1d',
+					color: '#fff',
+				},
+			});
 		} else {
 			navigate(`/search=${keyword}`);
 			setSearch('');

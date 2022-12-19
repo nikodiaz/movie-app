@@ -11,6 +11,7 @@ import Results from './Pages/Results/Results';
 import Favorites from './Pages/Favorites';
 import NotFound from './Pages/NotFound';
 import NavBar from './components/NavBar';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 	const favorites = useSelector((state) => state.favs);
@@ -29,6 +30,7 @@ function App() {
 				/>
 				<Route path='*' element={<NotFound />} />
 			</Routes>
+			<Toaster position='bottom-center' reverseOrder={false} />
 		</>
 	);
 }
