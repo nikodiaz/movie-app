@@ -5,10 +5,10 @@ import {
 	fetchTrendingMovies,
 	fetchPopularMovies,
 	fetchMovieGenres,
-} from '../../store/Slices/movies';
+} from 'store/Slices/movies';
 //component
 import HomeView from './HomeView';
-import Loader from '../../components/Loader';
+import Loader from 'components/Loader';
 
 const Home = () => {
 	const dispatch = useDispatch();

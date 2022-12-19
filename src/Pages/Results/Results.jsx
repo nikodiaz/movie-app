@@ -2,15 +2,15 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 //store
-import { searchMovies } from '../../store/Slices/search';
+import { searchMovies } from 'store/Slices/search';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchByGenreMovies } from '../../store/Slices/movies';
+import { fetchByGenreMovies } from 'store/Slices/movies';
 //component
 import ResultsView from './ResultsView';
-import Layout from '../../components/Layout/Layout';
-import Pagination from '../../components/Pagination';
-import Card from '../../components/Card';
-import Loader from '../../components/Loader';
+import Layout from 'components/Layout/Layout';
+import Pagination from 'components/Pagination';
+import Card from 'components/Card';
+import Loader from 'components/Loader';
 
 const Results = () => {
 	const dispatch = useDispatch();

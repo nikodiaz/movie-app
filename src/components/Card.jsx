@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import Fav from './Fav';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFav, removeFav } from '../store/Slices/favs/favsSlice';
+import { addFav, removeFav } from 'store/Slices/favs/favsSlice';
 import { toast } from 'react-hot-toast';
 
-const baseImg = 'https://image.tmdb.org/t/p/w342';
+const baseImg = 'https://image.tmdb.org/t/p/w342/';
 
 const Card = ({ data }) => {
 	const favorites = useSelector((state) => state.favs);

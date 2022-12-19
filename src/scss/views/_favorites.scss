@@ -1,5 +1,11 @@
 .favorites {
 	color: $white;
+	.search-bar {
+		margin: 0 0 2rem 0;
+		&-container {
+			justify-content: flex-start;
+		}
+	}
 	&-title {
 		margin: 0;
 	}

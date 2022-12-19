@@ -1,4 +1,11 @@
 .results {
+	.search-bar {
+		&-container {
+			display: flex;
+			justify-content: flex-start;
+		}
+		margin: 0 0 2rem 1rem;
+	}
 	&-title {
 		padding: 1rem;
 		margin: 0;

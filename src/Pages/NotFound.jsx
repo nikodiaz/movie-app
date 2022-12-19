@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import Layout from '../components/Layout/Layout';
-import page_not_found from '../assets/page_not_found.svg';
+import Layout from 'components/Layout/Layout';
+import page_not_found from 'assets/page_not_found.svg';
+import SearchBar from 'components/SearchBar/SearchBar';
 
 const NotFound = () => {
 	return (
@@ -11,6 +12,7 @@ const NotFound = () => {
 				</div>
 				<div className='not-found__msg'>
 					<h2>Oops! We're sorry!</h2>
+					<SearchBar />
 					<h4 className='home__link'>
 						Try searching or go to
 						<Link to='/'> Home Page</Link>.

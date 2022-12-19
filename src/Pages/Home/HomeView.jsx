@@ -1,9 +1,9 @@
-import Categories from '../../components/Categories';
-import List from '../../components/List';
-import Slider from '../../components/Slider';
-import Card from '../../components/Card';
+import Categories from 'components/Categories';
+import List from 'components/List';
+import Slider from 'components/Slider';
+import Card from 'components/Card';
 import { Link } from 'react-router-dom';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import SearchBar from 'components/SearchBar/SearchBar';
 
 const HomeView = ({ trending, popular, genres }) => {
 	return (

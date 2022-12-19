@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 //store
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDetail } from '../../store/Slices/movies';
-import { fetchCasting } from '../../store/Slices/cast';
-import { fetchTrailers } from '../../store/Slices/trailer';
+import { fetchDetail } from 'store/Slices/movies';
+import { fetchCasting } from 'store/Slices/cast';
+import { fetchTrailers } from 'store/Slices/trailer';
 
 //components
 import DetailView from './DetailView';
-import Layout from '../../components/Layout/Layout';
+import Layout from 'components/Layout/Layout';
 
 const Detail = () => {
 	const { id } = useParams();
