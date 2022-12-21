@@ -4,12 +4,14 @@ import Slider from 'components/Slider';
 import Card from 'components/Card';
 import { Link } from 'react-router-dom';
 import SearchBar from 'components/SearchBar/SearchBar';
+// import Hero from 'components/Hero';
 
 const HomeView = ({ trending, popular, genres }) => {
 	return (
 		<div style={{ position: 'relative' }}>
 			<>
 				<Slider data={trending} />
+				{/* <Hero data={trending} /> */}
 				<SearchBar />
 				<Categories>
 					{genres.map((genre) => {

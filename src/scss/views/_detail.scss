@@ -1,26 +1,27 @@
 .detail {
 	color: $white;
+	margin-left: 70px;
+	h2,
+	.detail-trailers__list {
+		margin-left: 3vw;
+	}
 	&-description {
 		display: flex;
+		flex-direction: column;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		&__overview {
-			width: 50%;
+			width: 100%;
 			h1,
 			h4,
 			p {
 				text-shadow: 0px 0px 30px $dust;
 			}
 		}
-		.detail--poster {
-			width: 40%;
-			img {
-				max-width: 100%;
-			}
-		}
 		.casts--content {
 			display: flex;
 			flex-wrap: wrap;
+			justify-content: space-around;
 			gap: 2.5rem;
 			.cast--item {
 				width: 100px;
@@ -37,21 +38,22 @@
 			}
 		}
 	}
-	.detail-trailers {
-		&__list {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 2rem;
-			.trailer {
-				width: 350px;
-				height: 200px;
-			}
+}
+.detail-trailers {
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		.trailer {
+			width: 350px;
+			height: 200px;
 		}
 	}
 }
 
 @media screen and (max-width: 768px) {
 	.detail {
+		margin-left: 0;
 		&-description {
 			flex-direction: column;
 			&__overview {

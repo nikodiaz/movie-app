@@ -9,7 +9,6 @@ import { fetchTrailers } from 'store/Slices/trailer';
 
 //components
 import DetailView from './DetailView';
-import Layout from 'components/Layout/Layout';
 
 const Detail = () => {
 	const { id } = useParams();
@@ -29,13 +28,11 @@ const Detail = () => {
 		);
 
 		return (
-			<Layout>
-				<DetailView
-					youtubeTrailer={youtubeTrailer}
-					movie={detail}
-					cast={cast.data.cast}
-				/>
-			</Layout>
+			<DetailView
+				youtubeTrailer={youtubeTrailer}
+				movie={detail}
+				cast={cast.data.cast}
+			/>
 		);
 	}
 	return;

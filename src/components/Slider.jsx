@@ -25,11 +25,11 @@ const Slider = ({ data }) => {
 		})`,
 	};
 	return (
-		<>
+		<article className='slider'>
 			<span onClick={prevSlide} className='arrow arrow-left'>
 				<IoIosArrowBack />
 			</span>
-			<section className='slider' style={style}>
+			<section className='slider-container' style={style}>
 				<div className='slider--overview'>
 					<h1>
 						{items[current].media_type === 'movie'
@@ -49,35 +49,14 @@ const Slider = ({ data }) => {
 							: items[current].overview.substring(0, 80)}
 						...
 					</p>
-					<div className='slider--status'>
-						<span
-							onClick={() => setCurrent(0)}
-							className={current === 0 ? 'active' : ''}
-						></span>
-						<span
-							onClick={() => setCurrent(1)}
-							className={current === 1 ? 'active' : ''}
-						></span>
-						<span
-							onClick={() => setCurrent(2)}
-							className={current === 2 ? 'active' : ''}
-						></span>
-						<span
-							onClick={() => setCurrent(3)}
-							className={current === 3 ? 'active' : ''}
-						></span>
-						<span
-							onClick={() => setCurrent(4)}
-							className={current === 4 ? 'active' : ''}
-						></span>
-					</div>
+
 					<Link to={`/movie/${items[current].id}`}>Details</Link>
 				</div>
 			</section>
 			<span onClick={nextSlide} className='arrow arrow-right'>
 				<IoIosArrowForward />
 			</span>
-		</>
+		</article>
 	);
 };
 export default Slider;

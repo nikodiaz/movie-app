@@ -1,4 +1,4 @@
-import { AiFillStar } from 'react-icons/ai';
+import Hero from 'components/Hero';
 import {
 	CAST_MAX_NUM,
 	GET_IMG,
@@ -7,25 +7,12 @@ import {
 } from 'store/vars';
 
 const DetailView = ({ movie, cast, youtubeTrailer }) => {
-	console.log(youtubeTrailer);
 	return (
 		<>
 			<div className='detail'>
 				<section className='detail-description'>
-					<figure className='detail--poster'>
-						<img
-							alt='poster'
-							src={GET_IMG + IMG_POSTER_SMALL + movie.poster_path}
-						/>
-					</figure>
+					<Hero data={movie} />
 					<div className='detail-description__overview'>
-						<h1>{movie.title}</h1>
-						<p className='rating'>
-							<AiFillStar />
-							{movie.vote_average.toFixed(1)}
-						</p>
-						<h4>Overview</h4>
-						<p>{movie.overview}</p>
 						<div className='casts'>
 							<h2>Casts</h2>
 							<div className='casts--content'>
