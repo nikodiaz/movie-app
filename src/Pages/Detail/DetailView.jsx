@@ -7,6 +7,7 @@ import {
 } from 'store/vars';
 
 const DetailView = ({ movie, cast, youtubeTrailer }) => {
+	console.log(youtubeTrailer);
 	return (
 		<>
 			<div className='detail'>

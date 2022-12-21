@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { AiFillStar } from 'react-icons/ai';
+import useResize from 'hooks/useResize';
 
 const baseImg = 'https://image.tmdb.org/t/p/original';
 
 const Slider = ({ data }) => {
 	const [current, setCurrent] = useState(0);
+	const { width } = useResize();
 
 	const items = data.slice(0, 5);
 	const nextSlide = () => {
@@ -17,7 +19,7 @@ const Slider = ({ data }) => {
 	};
 	const style = {
 		backgroundImage: `url(${baseImg}${
-			window.innerWidth > 768
+			width > 768
 				? items[current].backdrop_path
 				: items[current].poster_path
 		})`,
@@ -41,7 +43,12 @@ const Slider = ({ data }) => {
 							{data[current].title ? 'Movie' : 'Tv Serie'}
 						</span>
 					</p>
-					<p>{items[current].overview.substring(0, 220)}...</p>
+					<p>
+						{width > 768
+							? items[current].overview.substring(0, 210)
+							: items[current].overview.substring(0, 80)}
+						...
+					</p>
 					<div className='slider--status'>
 						<span
 							onClick={() => setCurrent(0)}

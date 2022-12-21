@@ -24,7 +24,8 @@ const Detail = () => {
 
 	if (detail.id && cast.data.cast && trailer.data.results) {
 		let youtubeTrailer = trailer.data.results.filter(
-			(trailer) => trailer.site === 'YouTube',
+			(trailer) =>
+				trailer.site === 'YouTube' && trailer.type === 'Trailer',
 		);
 
 		return (
