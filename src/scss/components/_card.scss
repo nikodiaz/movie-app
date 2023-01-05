@@ -1,0 +1,64 @@
+.card {
+	position: relative;
+	.fav--btn {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 48px;
+		height: 48px;
+		background: transparent;
+		border-radius: 50%;
+		border: none;
+		z-index: 99;
+		.added {
+			color: $red;
+		}
+		svg {
+			width: 32px;
+			height: 32px;
+			color: $white;
+		}
+	}
+	.card-link {
+		text-decoration: none;
+		color: inherit;
+		z-index: 8;
+		&:focus {
+			outline: none;
+		}
+	}
+	&-overview {
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+		z-index: 8;
+		p,
+		h3 {
+			margin: 0.5rem;
+		}
+	}
+	.card-container {
+		display: flex;
+		align-items: flex-end;
+		width: 16rem;
+		height: 24rem;
+		text-align: left;
+		color: $white;
+		background-repeat: no-repeat;
+		background-size: contain;
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			content: '';
+			background-image: linear-gradient(
+				rgba(0, 0, 0, 0.1),
+				rgba(0, 0, 0, 0.6)
+			);
+		}
+	}
+}

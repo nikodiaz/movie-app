@@ -1,0 +1,17 @@
+.list--title {
+	color: $white;
+}
+.list--container {
+	display: flex;
+	gap: 0.5rem;
+	padding-bottom: 1rem;
+	padding-right: 2rem;
+	overflow-x: scroll;
+	&::-webkit-scrollbar {
+		height: 10px;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 15px;
+		background: $dust;
+	}
+}

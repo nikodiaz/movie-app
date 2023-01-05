@@ -1,0 +1,32 @@
+//Utilities
+
+@import './utils/vars';
+@import './utils/mixins';
+
+//Base
+
+@import './base/app';
+@import './base/normalize';
+
+//Components
+
+@import './components/card';
+@import './components/categories';
+@import './components/list';
+@import './components/nav-bar';
+@import './components/pagination';
+@import './components/search-bar';
+@import './components/slider';
+@import './components/loader';
+@import './components/hero';
+
+//Layouts
+
+@import './layout/layout';
+
+//Views
+
+@import './views/not_found';
+@import './views/detail';
+@import './views/favorites';
+@import './views/results';
