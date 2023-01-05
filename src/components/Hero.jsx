@@ -1,7 +1,7 @@
-import useResize from 'hooks/useResize';
+import useResize from '../hooks/useResize';
 import React, { useEffect } from 'react';
 import { AiFillStar } from 'react-icons/ai';
-import { GET_IMG, IMG_BACKDROP_ORIGINAL } from 'store/vars';
+import { GET_IMG, IMG_BACKDROP_ORIGINAL } from '../store/vars';
 
 const Hero = ({ data }) => {
 	const { width } = useResize();

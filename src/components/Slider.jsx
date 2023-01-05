@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { AiFillStar } from 'react-icons/ai';
-import useResize from 'hooks/useResize';
+import useResize from '../hooks/useResize';
 
 const baseImg = 'https://image.tmdb.org/t/p/original';
 

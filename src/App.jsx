@@ -1,16 +1,16 @@
 //Styles
 import 'typeface-roboto';
-import 'scss/index.scss';
+import './scss/index.scss';
 //libs
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 //components
-import Home from 'Pages/Home/Home';
-import Detail from 'Pages/Detail/Detail';
-import Results from 'Pages/Results/Results';
-import Favorites from 'Pages/Favorites';
-import NotFound from 'Pages/NotFound';
-import NavBar from 'components/NavBar';
+import Home from './pages/Home/Home';
+import Detail from './pages/Detail/Detail';
+import Results from './pages/Results/Results';
+import Favorites from './pages/Favorites';
+import NotFound from './pages/NotFound';
+import NavBar from './components/NavBar';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
