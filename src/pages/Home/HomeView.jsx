@@ -17,7 +17,7 @@ const HomeView = ({ trending, popular, genres }) => {
 					{genres.map((genre) => {
 						return (
 							<Link
-								to={`/${genre.name}/${genre.id}`}
+								to={`/search/${genre.name}/${genre.id}`}
 								key={genre.id}
 								className='tag'
 								data-id={genre.id}

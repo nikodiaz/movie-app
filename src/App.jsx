@@ -22,8 +22,11 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/movie/:id' element={<Detail />} />
-				<Route path='/search=:query' element={<Results />} />
-				<Route path='/:category_name/:category' element={<Results />} />
+				<Route path='/search/:query' element={<Results />} />
+				<Route
+					path='/search/:category_name/:category'
+					element={<Results />}
+				/>
 				<Route
 					path='/favorites'
 					element={<Favorites favorites={favorites} />}

@@ -24,7 +24,7 @@ const SearchBar = () => {
 				},
 			});
 		} else {
-			navigate(`/search=${keyword}`);
+			navigate(`/search/${keyword}`);
 			setSearch('');
 		}
 	};
