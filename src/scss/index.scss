@@ -19,13 +19,15 @@
 @import './components/slider';
 @import './components/loader';
 @import './components/hero';
+@import './components/trending_box';
+@import './components/card-small';
 
 //Layouts
-
 @import './layout/layout';
 
 //Views
 
+@import './views/home';
 @import './views/not_found';
 @import './views/detail';
 @import './views/favorites';

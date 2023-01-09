@@ -3,21 +3,20 @@ export const API_KEY = '?api_key=2401a0e43ad659da80761c5b927e5930';
 export const API_KEY_ALT = '&api_key=2401a0e43ad659da80761c5b927e5930';
 export const PAGE = (n) => `&page=${n}`;
 
-export const GET_MOVIE_BY = 'discover/movie';
-export const GET_GENRES = 'genre/movie/list';
-export const GET_MOVIE_POPULAR = 'movie/popular';
-export const GET_MOVIE_TOP_RATED = 'movie/top_rated';
-export const GET_MOVIE_UPCOMING = 'movie/upcoming';
-export const GET_MOVIE_LATEST = 'movie/latest';
+export const DISCOVER = 'discover/';
+export const GET_GENRES = (type) => `genre/${type}/list`;
+export const GET_POPULAR = 'popular';
+export const GET_TOP_RATED = 'top_rated';
+export const GET_UPCOMING = 'upcoming';
+export const GET_LATEST = 'latest';
+export const GET_TRENDING = 'trending/';
 export const GET_MOVIE = (movieID) => `movie/${movieID}`;
 
 export const PARAMS_LANG_SPA = '&language=es-ES';
 export const PARAMS_LANG_ENG = '&language=en-US';
 export const PARAMS_GENRE = '&with_genres=';
 
-export const GET_TRENDING = 'trending/';
-export const GET_SEARCH = 'search/movie?query=';
-export const GET_PERSON = 'person/';
+export const GET_SEARCH_MOVIE = 'search/movie?query=';
 export const GET_IMG = 'https://image.tmdb.org/t/p/';
 export const GET_CAST = '/casts';
 export const GET_VIDEO = '/videos';
@@ -32,7 +31,11 @@ export const IMG_POSTER_MEDIUM = 'w500';
 export const IMG_POSTER_LARGE = 'w780';
 export const IMG_POSTER_ORIGINAL = 'original';
 
-export const TYPE_MOVIE = 'movie/day';
-export const TYPE_ALL = 'all/day';
+export const TYPE_MOVIE = 'movie/';
+export const TYPE_TV = 'tv/';
+export const TYPE_ALL = 'all/';
+export const TYPE_PERSON = 'person/';
+export const TIME_DAY = 'day';
+export const TIME_WEEK = 'week';
 export const CAST_MAX_NUM = 5;
 export const TRAILER_MAX_NUM = 3;

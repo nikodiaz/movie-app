@@ -1,0 +1,9 @@
+.home {
+	position: relative;
+	.main-layout {
+		.home-widgets {
+			display: flex;
+			gap: 2rem;
+		}
+	}
+}

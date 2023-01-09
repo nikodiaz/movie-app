@@ -19,22 +19,31 @@ const urlTrend =
 	api.BASE_URL +
 	api.GET_TRENDING +
 	api.TYPE_ALL +
+	api.TIME_DAY +
 	api.API_KEY +
 	api.PARAMS_LANG_SPA;
 
 const urlByGenre = (page, category) =>
 	api.BASE_URL +
-	api.GET_MOVIE_BY +
+	api.DISCOVER +
+	api.TYPE_MOVIE +
 	api.API_KEY +
 	api.PARAMS_GENRE +
 	category +
 	api.PAGE(page);
 
 const urlPop =
-	api.BASE_URL + api.GET_MOVIE_POPULAR + api.API_KEY + api.PARAMS_LANG_SPA;
+	api.BASE_URL +
+	api.TYPE_MOVIE +
+	api.GET_POPULAR +
+	api.API_KEY +
+	api.PARAMS_LANG_SPA;
 
 const urlGenre =
-	api.BASE_URL + api.GET_GENRES + api.API_KEY + api.PARAMS_LANG_SPA;
+	api.BASE_URL +
+	api.GET_GENRES(api.TYPE_MOVIE) +
+	api.API_KEY +
+	api.PARAMS_LANG_SPA;
 
 const urlDetail = (id) =>
 	api.BASE_URL + api.GET_MOVIE(id) + api.API_KEY + api.PARAMS_LANG_SPA;

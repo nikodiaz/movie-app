@@ -2,7 +2,11 @@ import * as api from '../../vars';
 import { search, searchFail, searchSuccess } from './searchSlice';
 
 const urlSearch = (page, query) =>
-	api.BASE_URL + api.GET_SEARCH + query + api.API_KEY_ALT + api.PAGE(page);
+	api.BASE_URL +
+	api.GET_SEARCH_MOVIE +
+	query +
+	api.API_KEY_ALT +
+	api.PAGE(page);
 
 export const searchMovies = (page, query) => {
 	return async (dispatch) => {

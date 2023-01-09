@@ -4,34 +4,39 @@ import Slider from '../../components/Slider';
 import Card from '../../components/Card';
 import { Link } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import TrendingBox from '../../components/TrendingBox';
+import Layout from '../../components/Layout/Layout';
 // import Hero from 'components/Hero';
 
 const HomeView = ({ trending, popular, genres }) => {
 	return (
-		<div style={{ position: 'relative' }}>
+		<div className='home'>
 			<>
-				<Slider data={trending} />
+				<Slider data={popular} />
 				{/* <Hero data={trending} /> */}
 				<SearchBar />
-				<Categories>
-					{genres.map((genre) => {
-						return (
-							<Link
-								to={`/search/${genre.name}/${genre.id}`}
-								key={genre.id}
-								className='tag'
-								data-id={genre.id}
-							>
-								{genre.name}
-							</Link>
-						);
-					})}
-				</Categories>
-				<List title='Discover Movies'>
-					{popular.map((movie) => {
-						return <Card key={movie.id} data={movie} />;
-					})}
-				</List>
+				<Layout>
+					<div className='home-widgets'>
+						<Categories>
+							{genres.map((genre) => {
+								return (
+									<Link
+										to={`/search/${genre.name}/${genre.id}`}
+										key={genre.id}
+										className='tag'
+										data-id={genre.id}
+									>
+										{genre.name}
+									</Link>
+								);
+							})}
+						</Categories>
+						<TrendingBox
+							trending_list={trending}
+							title='Trending'
+						/>
+					</div>
+				</Layout>
 			</>
 		</div>
 	);

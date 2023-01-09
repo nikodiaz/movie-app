@@ -31,11 +31,7 @@ const Slider = ({ data }) => {
 			</span>
 			<section className='slider-container' style={style}>
 				<div className='slider--overview'>
-					<h1>
-						{items[current].media_type === 'movie'
-							? items[current].title
-							: items[current].name}
-					</h1>
+					<h1>{items[current].title || items[current].name}</h1>
 					<p className='rating'>
 						<AiFillStar />
 						{data[current].vote_average.toFixed(1)}

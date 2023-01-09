@@ -18,6 +18,11 @@ body {
 	min-height: 100vh;
 	background: $eerie;
 	padding-bottom: 4rem;
+	h1,
+	h2,
+	h3 {
+		font-weight: 400;
+	}
 
 	.rating {
 		display: flex;
