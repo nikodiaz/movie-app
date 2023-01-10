@@ -9,4 +9,14 @@
 			border-radius: 10px;
 		}
 	}
+	&-over {
+		.year {
+			padding: 0.2rem 1rem;
+			color: #fff;
+			background: rgba(51, 51, 51, 0.6666666667);
+			border-radius: 5px;
+			text-shadow: none;
+			border: none;
+		}
+	}
 }

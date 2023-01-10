@@ -8,7 +8,7 @@ import TrendingBox from '../../components/TrendingBox';
 import Layout from '../../components/Layout/Layout';
 // import Hero from 'components/Hero';
 
-const HomeView = ({ trending, popular, genres }) => {
+const HomeView = ({ trending, popular, genres, set_time, trend_time }) => {
 	return (
 		<div className='home'>
 			<>
@@ -33,6 +33,8 @@ const HomeView = ({ trending, popular, genres }) => {
 						</Categories>
 						<TrendingBox
 							trending_list={trending}
+							set_time={set_time}
+							trend_time={trend_time}
 							title='Trending'
 						/>
 					</div>

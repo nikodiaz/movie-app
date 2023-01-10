@@ -15,11 +15,11 @@ import {
 
 //endpoints
 
-const urlTrend =
+const urlTrend = (type, time) =>
 	api.BASE_URL +
 	api.GET_TRENDING +
-	api.TYPE_ALL +
-	api.TIME_DAY +
+	type +
+	time +
 	api.API_KEY +
 	api.PARAMS_LANG_SPA;
 
@@ -50,11 +50,14 @@ const urlDetail = (id) =>
 
 //Trending
 
-export const fetchTrendingMovies = () => {
+export const fetchTrendingMovies = (
+	type = api.TYPE_ALL,
+	time = api.TIME_DAY,
+) => {
 	return async (dispatch) => {
 		dispatch(fetchMovies());
 		try {
-			const res = await fetch(urlTrend);
+			const res = await fetch(urlTrend(type, time));
 			const data = await res.json();
 			dispatch(fetchTrendSuccess(await data));
 		} catch (error) {

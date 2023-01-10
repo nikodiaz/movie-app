@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 //store
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -9,16 +9,22 @@ import {
 //component
 import HomeView from './HomeView';
 import Loader from '../../components/Loader';
+import { TIME_DAY, TYPE_ALL } from '../../store/vars';
 
 const Home = () => {
 	const dispatch = useDispatch();
 	const { movies, loading, genres } = useSelector((state) => state.movies);
+	const [trendTime, setTrendTime] = useState(TIME_DAY);
 
 	useEffect(() => {
-		dispatch(fetchTrendingMovies());
+		dispatch(fetchTrendingMovies(TYPE_ALL, trendTime));
 		dispatch(fetchPopularMovies());
 		dispatch(fetchMovieGenres());
-	}, [dispatch]);
+	}, [dispatch, trendTime]);
+
+	const handleTrendTime = (e) => {
+		setTrendTime(e.target.value);
+	};
 
 	return (
 		<>
@@ -30,6 +36,8 @@ const Home = () => {
 					trending={movies.trending.results}
 					popular={movies.popular.results}
 					genres={genres.genres}
+					set_time={handleTrendTime}
+					trend_time={trendTime}
 				/>
 			) : null}
 		</>

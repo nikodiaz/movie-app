@@ -12,8 +12,11 @@ const CardSmall = ({ data }) => {
 				<p>{data.title || data.name}</p>
 				<p className='rating'>
 					<AiFillStar />
-					<span>{data.vote_average.toFixed(1)} </span>
-					<span>{data.release_date.split('-')[0]}</span>
+					<span>{data.vote_average.toFixed(1)}</span>
+					<span className='year'>
+						{' '}
+						{data.release_date.split('-')[0]}
+					</span>
 				</p>
 			</div>
 		</div>
