@@ -1,5 +1,6 @@
 .card {
 	position: relative;
+	width: min-content;
 	.fav--btn {
 		position: absolute;
 		top: 0.5rem;
@@ -23,6 +24,7 @@
 		}
 	}
 	.card-link {
+		width: 100%;
 		text-decoration: none;
 		color: inherit;
 		z-index: 8;

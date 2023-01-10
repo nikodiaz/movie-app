@@ -15,7 +15,8 @@ const CardSmall = ({ data }) => {
 					<span>{data.vote_average.toFixed(1)}</span>
 					<span className='year'>
 						{' '}
-						{data.release_date.split('-')[0]}
+						{data.release_date?.split('-')[0] ||
+							data.first_air_date?.split('-')[0]}
 					</span>
 				</p>
 			</div>

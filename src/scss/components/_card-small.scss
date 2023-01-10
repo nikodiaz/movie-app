@@ -10,6 +10,12 @@
 		}
 	}
 	&-over {
+		p {
+			width: 250px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
 		.year {
 			padding: 0.2rem 1rem;
 			color: #fff;

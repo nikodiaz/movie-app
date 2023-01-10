@@ -23,9 +23,9 @@ const TrendingBox = ({ title, trending_list, trend_time, set_time }) => {
 			</div>
 			<div className='trendingBox-list'>
 				{trending_list &&
-					trending_list
-						.slice(0, 5)
-						.map((item) => <CardSmall key={item.id} data={item} />)}
+					trending_list.map((item) => (
+						<CardSmall key={item.id} data={item} />
+					))}
 			</div>
 		</article>
 	);
