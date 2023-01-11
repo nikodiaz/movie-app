@@ -62,8 +62,14 @@ const Card = ({ data }) => {
 						<p className='rating'>
 							<AiFillStar />
 							{data.vote_average}
+							<span className='year'>
+								{data.release_date?.split('-')[0] ||
+									data.first_air_date?.split('-')[0]}
+							</span>
 						</p>
-						<h3 className='card-overview__title'>{data.title}</h3>
+						<h3 className='card-overview__title'>
+							{data.title || data.name}
+						</h3>
 					</div>
 				</div>
 			</Link>
