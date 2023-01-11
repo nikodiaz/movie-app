@@ -1,19 +1,22 @@
 import * as api from '../../vars';
 import {
-	fetchMovies,
-	fetchByGenreFail,
+	fetchStart,
 	fetchByGenreSuccess,
-	fetchPopularFail,
 	fetchPopularSuccess,
-	fetchTrendFail,
 	fetchTrendSuccess,
 	fetchGenresSuccess,
-	fetchGenresFail,
 	fetchDetailsSuccess,
-	fetchDetailsFail,
+	fetchFail,
 } from './movieSlice';
 
 //endpoints
+
+const urlLatest =
+	api.BASE_URL +
+	api.GET_LATEST +
+	api.TYPE_MOVIE +
+	api.API_KEY +
+	api.PARAMS_LANG_SPA;
 
 const urlTrend = (type, time) =>
 	api.BASE_URL +
@@ -48,6 +51,21 @@ const urlGenre =
 const urlDetail = (id) =>
 	api.BASE_URL + api.GET_MOVIE(id) + api.API_KEY + api.PARAMS_LANG_SPA;
 
+//Latest
+
+export const fetchLatestMovies = () => {
+	return async (dispatch) => {
+		dispatch(fetchStart());
+		try {
+			const res = await fetch(urlLatest);
+			const data = await res.json();
+			dispatch(fetchLatestSuccess(await data));
+		} catch (error) {
+			dispatch(fetchFail(await error));
+		}
+	};
+};
+
 //Trending
 
 export const fetchTrendingMovies = (
@@ -55,28 +73,28 @@ export const fetchTrendingMovies = (
 	time = api.TIME_DAY,
 ) => {
 	return async (dispatch) => {
-		dispatch(fetchMovies());
+		dispatch(fetchStart());
 		try {
 			const res = await fetch(urlTrend(type, time));
 			const data = await res.json();
 			dispatch(fetchTrendSuccess(await data));
 		} catch (error) {
-			dispatch(fetchTrendFail(await error));
+			dispatch(fetchFail(await error));
 		}
 	};
 };
 
 //Genres
 
-export const fetchMovieGenres = (url = urlGenre) => {
+export const fetchMovieGenres = () => {
 	return async (dispatch) => {
-		dispatch(fetchMovies());
+		dispatch(fetchStart());
 		try {
-			const res = await fetch(url);
+			const res = await fetch(urlGenre);
 			const data = await res.json();
 			dispatch(fetchGenresSuccess(await data));
 		} catch (error) {
-			dispatch(fetchGenresFail(await error));
+			dispatch(fetchFail(await error));
 		}
 	};
 };
@@ -85,13 +103,13 @@ export const fetchMovieGenres = (url = urlGenre) => {
 
 export const fetchByGenreMovies = (page, category) => {
 	return async (dispatch) => {
-		dispatch(fetchMovies());
+		dispatch(fetchStart());
 		try {
 			const res = await fetch(urlByGenre(page, category));
 			const data = await res.json();
 			dispatch(fetchByGenreSuccess(await data));
 		} catch (error) {
-			dispatch(fetchByGenreFail(await error));
+			dispatch(fetchFail(await error));
 		}
 	};
 };
@@ -100,13 +118,13 @@ export const fetchByGenreMovies = (page, category) => {
 
 export const fetchPopularMovies = (url = urlPop) => {
 	return async (dispatch) => {
-		dispatch(fetchMovies());
+		dispatch(fetchStart());
 		try {
 			const res = await fetch(url);
 			const data = await res.json();
 			dispatch(fetchPopularSuccess(await data));
 		} catch (error) {
-			dispatch(fetchPopularFail(await error));
+			dispatch(fetchFail(await error));
 		}
 	};
 };
@@ -115,13 +133,13 @@ export const fetchPopularMovies = (url = urlPop) => {
 
 export const fetchDetail = (id) => {
 	return async (dispatch) => {
-		dispatch(fetchMovies());
+		dispatch(fetchStart());
 		try {
 			const res = await fetch(urlDetail(id));
 			const data = await res.json();
 			dispatch(fetchDetailsSuccess(await data));
 		} catch (error) {
-			dispatch(fetchDetailsFail(await error));
+			dispatch(fetchFail(await error));
 		}
 	};
 };
