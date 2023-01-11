@@ -11,6 +11,7 @@ export const GET_UPCOMING = 'upcoming';
 export const GET_LATEST = 'latest';
 export const GET_TRENDING = 'trending/';
 export const GET_MOVIE = (movieID) => `movie/${movieID}`;
+export const GET_TV = (tvId) => `tv/${tvId}`;
 
 export const PARAMS_LANG_SPA = '&language=es-ES';
 export const PARAMS_LANG_ENG = '&language=en-US';
