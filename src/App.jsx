@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound';
 import NavBar from './components/NavBar';
 import { Toaster } from 'react-hot-toast';
 import TvPage from './pages/TvPage';
+import MoviePage from './pages/MoviePage';
 
 function App() {
 	const favorites = useSelector((state) => state.favs);
@@ -23,6 +24,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/tv' element={<TvPage />} />
+				<Route path='/movie' element={<MoviePage />} />
 				<Route path='/movie/:id' element={<Detail />} />
 				<Route path='/search/:query' element={<Results />} />
 				<Route

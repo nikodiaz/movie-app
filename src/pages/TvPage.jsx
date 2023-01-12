@@ -22,7 +22,7 @@ const TvPage = () => {
 		dispatch(fetchPopularTv());
 		dispatch(fetchTrendTv(trendTime));
 		dispatch(fetchTvGenres());
-	}, []);
+	}, [trendTime, dispatch]);
 	return (
 		<div>
 			{loading ? <Loader /> : null}
