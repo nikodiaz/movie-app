@@ -1,7 +1,7 @@
 import { TIME_DAY, TIME_WEEK } from '../store/vars';
 import CardSmall from './CardSmall';
 
-const TrendingBox = ({ title, trending_list, trend_time, set_time }) => {
+const TrendingBox = ({ title, trending_list, trend_time, set_time, media }) => {
 	return (
 		<article className='trendingBox'>
 			<h3>{title}</h3>
@@ -24,7 +24,7 @@ const TrendingBox = ({ title, trending_list, trend_time, set_time }) => {
 			<div className='trendingBox-list'>
 				{trending_list &&
 					trending_list.map((item) => (
-						<CardSmall key={item.id} data={item} />
+						<CardSmall key={item.id} data={item} media={media} />
 					))}
 			</div>
 		</article>

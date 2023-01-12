@@ -38,6 +38,7 @@ const GenericView = ({
 						set_time={set_time}
 						trend_time={trend_time}
 						title={'Trending ' + trend_title}
+						media={media}
 					/>
 					<Grid list={popular} media={media} />
 				</div>

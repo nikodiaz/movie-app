@@ -33,7 +33,7 @@ const TvPage = () => {
 					genres={genres.genres}
 					set_time={handleTrendTime}
 					trend_time={trendTime}
-					media={'Tv'}
+					media={'tv'}
 					trend_title={'Tv Series'}
 				/>
 			) : null}

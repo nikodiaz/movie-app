@@ -3,9 +3,9 @@ import { AiFillStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { GET_IMG, IMG_POSTER_SMALL } from '../store/vars';
 
-const CardSmall = ({ data }) => {
+const CardSmall = ({ data, media = 'movie' }) => {
 	return (
-		<Link className='cardSmall'>
+		<Link className='cardSmall' to={`/${media}/${data.id}`}>
 			<figure className='cardSmall-poster'>
 				<img src={GET_IMG + IMG_POSTER_SMALL + data.poster_path} />
 			</figure>

@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 
 const baseImg = 'https://image.tmdb.org/t/p/w342/';
 
-const Card = ({ data }) => {
+const Card = ({ data, media = 'movie' }) => {
 	const favorites = useSelector((state) => state.favs);
 	const dispatch = useDispatch();
 
@@ -61,7 +61,7 @@ const Card = ({ data }) => {
 					movieIsAdded || tvIsAdded ? handleDelete : handleAdd
 				}
 			/>
-			<Link to={`/movie/${data.id}`} className='card-link'>
+			<Link to={`/${media}/${data.id}`} className='card-link'>
 				<div
 					className='card-container'
 					style={style}
