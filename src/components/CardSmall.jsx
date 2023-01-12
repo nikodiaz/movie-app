@@ -1,10 +1,11 @@
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import { GET_IMG, IMG_POSTER_SMALL } from '../store/vars';
 
 const CardSmall = ({ data }) => {
 	return (
-		<div className='cardSmall'>
+		<Link className='cardSmall'>
 			<figure className='cardSmall-poster'>
 				<img src={GET_IMG + IMG_POSTER_SMALL + data.poster_path} />
 			</figure>
@@ -20,7 +21,7 @@ const CardSmall = ({ data }) => {
 					</span>
 				</p>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
