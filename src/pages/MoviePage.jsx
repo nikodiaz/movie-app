@@ -22,7 +22,7 @@ const MoviePage = () => {
 		dispatch(fetchPopularMovies());
 		dispatch(fetchTrendingMovies(TYPE_MOVIE, trendTime));
 		dispatch(fetchMovieGenres());
-	}, [trendTime, dispatch]);
+	}, [trendTime]);
 
 	return (
 		<div>
@@ -37,6 +37,7 @@ const MoviePage = () => {
 					set_time={handleTrendTime}
 					trend_time={trendTime}
 					media={'Tv'}
+					trend_title='Movies'
 				/>
 			) : null}
 		</div>

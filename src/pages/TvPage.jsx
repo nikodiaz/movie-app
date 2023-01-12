@@ -22,7 +22,7 @@ const TvPage = () => {
 		dispatch(fetchPopularTv());
 		dispatch(fetchTrendTv(trendTime));
 		dispatch(fetchTvGenres());
-	}, [trendTime, dispatch]);
+	}, [trendTime]);
 	return (
 		<div>
 			{loading ? <Loader /> : null}
@@ -34,6 +34,7 @@ const TvPage = () => {
 					set_time={handleTrendTime}
 					trend_time={trendTime}
 					media={'Tv'}
+					trend_title={'Tv Series'}
 				/>
 			) : null}
 		</div>

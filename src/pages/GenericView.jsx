@@ -12,6 +12,7 @@ const GenericView = ({
 	trend_time,
 	popular,
 	media,
+	trend_title,
 }) => {
 	return (
 		<div className='home generic'>
@@ -36,7 +37,7 @@ const GenericView = ({
 						trending_list={trending}
 						set_time={set_time}
 						trend_time={trend_time}
-						title='Trending'
+						title={'Trending ' + trend_title}
 					/>
 					<Grid list={popular} media={media} />
 				</div>
