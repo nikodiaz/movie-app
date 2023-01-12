@@ -30,11 +30,11 @@ const tvSlice = createSlice({
 		},
 		fetchPopularSuccess(state, action) {
 			state.loading = false;
-			state.movies.popular = action.payload;
+			state.series.popular = action.payload;
 		},
 		fetchTrendSuccess(state, action) {
 			state.loading = false;
-			state.movies.trending = action.payload;
+			state.series.trend = action.payload;
 		},
 		fetchGenresSuccess(state, action) {
 			state.loading = false;
@@ -42,7 +42,7 @@ const tvSlice = createSlice({
 		},
 		fetchByGenreSuccess(state, action) {
 			state.loading = false;
-			state.movies.by_genre = action.payload;
+			state.series.by_genre = action.payload;
 		},
 		fetchDetailsSuccess(state, action) {
 			state.loading = false;

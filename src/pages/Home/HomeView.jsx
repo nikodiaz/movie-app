@@ -13,7 +13,7 @@ const HomeView = ({ trending, popular, genres, set_time, trend_time }) => {
 				<Slider data={popular} />
 				<SearchBar />
 				<Layout>
-					<div className='home-widgets'>
+					<div className='widgets'>
 						<Categories>
 							{genres.map((genre) => {
 								return (

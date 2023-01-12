@@ -1,5 +1,5 @@
 .search-bar {
-	margin: 4rem 5rem 0 5rem;
+	padding: 4rem 5rem 0 5rem;
 	&-container {
 		height: 50px;
 		width: 100%;
@@ -39,7 +39,7 @@
 }
 @media screen and (max-width: 900px) {
 	.search-bar {
-		margin: 4rem 0 0 0;
+		padding: 4rem 0 0 0;
 		.search-bar--input {
 			width: 60%;
 		}

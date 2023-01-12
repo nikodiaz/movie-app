@@ -26,8 +26,15 @@ const Card = ({ data }) => {
 	const movieIsAdded = favorites.movies.find(
 		(movie) => movie.id === cardData.id,
 	);
+	const tvIsAdded = favorites.tvSeries.find(
+		(serie) => serie.id === cardData.id,
+	);
 	const handleDelete = () => {
-		dispatch(removeFav(movieIsAdded));
+		if (cardData.title !== undefined && movieIsAdded) {
+			dispatch(removeFav(movieIsAdded));
+		} else if (cardData.name !== undefined && tvIsAdded) {
+			dispatch(removeFav(tvIsAdded));
+		}
 		toast('Removido de favoritos!', {
 			icon: '👏',
 			style: {
@@ -49,8 +56,10 @@ const Card = ({ data }) => {
 	return (
 		<article className='card'>
 			<Fav
-				movieIsAdded={movieIsAdded}
-				handleClick={movieIsAdded ? handleDelete : handleAdd}
+				movieIsAdded={movieIsAdded || tvIsAdded}
+				handleClick={
+					movieIsAdded || tvIsAdded ? handleDelete : handleAdd
+				}
 			/>
 			<Link to={`/movie/${data.id}`} className='card-link'>
 				<div

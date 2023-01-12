@@ -31,10 +31,10 @@ const favsSlice = createSlice({
 			const tvIsAdded = state.tvSeries.find(
 				(tv) => tv.id === action.payload.id,
 			);
-			if (movieIsAdded) {
+			if (action.payload.title !== undefined && movieIsAdded) {
 				state.movies.splice(state.movies.indexOf(movieIsAdded), 1);
 			}
-			if (tvIsAdded) {
+			if (action.payload.name !== undefined && tvIsAdded) {
 				state.tvSeries.splice(state.tvSeries.indexOf(tvIsAdded), 1);
 			}
 			localStorage.setItem('myFavs', JSON.stringify(state));

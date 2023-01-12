@@ -4,6 +4,7 @@ import favsSlice from './Slices/favs/favsSlice';
 import movieSlice from './Slices/movies/movieSlice';
 import searchSlice from './Slices/search/searchSlice';
 import trailerSlice from './Slices/trailer/trailerSlice';
+import tvSlice from './Slices/tv/tvSlice';
 
 const store = configureStore({
 	reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
 		search: searchSlice.reducer,
 		favs: favsSlice.reducer,
 		movies: movieSlice.reducer,
+		tv: tvSlice.reducer,
 	},
 });
 
