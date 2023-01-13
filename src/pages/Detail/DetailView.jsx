@@ -1,7 +1,8 @@
 import Hero from '../../components/Hero';
 import {
-	CAST_MAX_NUM,
 	GET_IMG,
+	IMG_BACKDROP_SMALL,
+	IMG_POSTER_ORIGINAL,
 	IMG_POSTER_SMALL,
 	URL_YOUTUBE,
 } from '../../store/vars';
@@ -16,19 +17,24 @@ const DetailView = ({ movie, cast, youtubeTrailer }) => {
 						<div className='casts'>
 							<h2>Casts</h2>
 							<div className='casts--content'>
-								{cast.slice(0, CAST_MAX_NUM).map((actor) => (
-									<div key={actor.id} className='cast--item'>
-										<img
-											src={
-												GET_IMG +
-												IMG_POSTER_SMALL +
-												actor.profile_path
-											}
-											alt={actor.name}
-										/>
-										<h3>{actor.name}</h3>
-									</div>
-								))}
+								{cast
+									.filter((actor) => actor.popularity >= 20)
+									.map((actor) => (
+										<div
+											key={actor.id}
+											className='cast--item'
+										>
+											<img
+												src={
+													GET_IMG +
+													IMG_POSTER_ORIGINAL +
+													actor.profile_path
+												}
+												alt={actor.name}
+											/>
+											<h3>{actor.name}</h3>
+										</div>
+									))}
 							</div>
 						</div>
 					</div>

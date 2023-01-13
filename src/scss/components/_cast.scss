@@ -1,0 +1,25 @@
+.casts--content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	.cast--item {
+		width: 150px;
+		text-align: center;
+		img {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			object-fit: cover;
+			object-position: top;
+		}
+		h3 {
+			margin: 0.3rem;
+			font-weight: 400;
+		}
+	}
+}
+@media (max-width: 425px) {
+	.casts--content {
+		justify-content: center;
+	}
+}

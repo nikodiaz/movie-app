@@ -2,7 +2,9 @@
 	position: relative;
 	background-repeat: no-repeat;
 	background-size: cover;
-	aspect-ratio: 21/9;
+	height: 70vh;
+	display: flex;
+	align-items: center;
 	h1 {
 		font-size: 2rem;
 		font-weight: 400;
@@ -36,6 +38,17 @@
 		height: inherit;
 		color: $white;
 		text-shadow: 2px 1px 5px black;
+		.review-counts,
+		.premiere {
+			color: #777;
+			text-shadow: none;
+		}
+		.media-type {
+			background: $red;
+			padding: 0.2rem 0.6rem;
+			border-radius: 15px;
+			text-shadow: none;
+		}
 	}
 }
 

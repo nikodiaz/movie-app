@@ -11,14 +11,23 @@ const Hero = ({ data }) => {
 			width > 620 ? data.backdrop_path : data.poster_path
 		})`,
 	};
+
 	return (
 		<section style={backgroundImage} className='hero'>
 			<div className='hero--overview'>
-				<h1>{data.title ? data.title : data.name}</h1>
+				<h1>{data.title || data.name}</h1>
 				<p className='rating'>
 					<AiFillStar />
-					{data.vote_average.toFixed(1)}
-					<span>{data.title ? 'Movie' : 'Tv Serie'}</span>
+					{data.vote_average?.toFixed(1)}
+					<span className='media-type'>
+						{data.title ? 'Movie' : 'Tv Serie'}
+					</span>
+					<span className='review-counts'>
+						{data.vote_count} Reviews
+					</span>
+					<span className='premiere'>
+						{data.release_date || data.first_air_date}
+					</span>
 				</p>
 				<p>{width > 768 ? data.overview : data.overview}</p>
 			</div>
