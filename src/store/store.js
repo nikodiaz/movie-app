@@ -7,14 +7,14 @@ import trailerSlice from './Slices/trailer/trailerSlice';
 import tvSlice from './Slices/tv/tvSlice';
 
 const store = configureStore({
-	reducer: {
-		trailer: trailerSlice.reducer,
-		cast: castSlice.reducer,
-		search: searchSlice.reducer,
-		favs: favsSlice.reducer,
-		movies: movieSlice.reducer,
-		tv: tvSlice.reducer,
-	},
+  reducer: {
+    trailer: trailerSlice.reducer,
+    cast: castSlice.reducer,
+    search: searchSlice.reducer,
+    favs: favsSlice.reducer,
+    movies: movieSlice.reducer,
+    tv: tvSlice.reducer,
+  },
 });
 
 export default store;
