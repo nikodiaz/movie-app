@@ -15,13 +15,17 @@ function Detail() {
   const { id, media } = useParams();
   const { cast, trailer } = useSelector((state) => state);
   const { detail } = useSelector((state) => state.movies);
-  const tv = useSelector((state) => state.tv);
+  const tv = useSelector((state) => state.tv.detail);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCasting(id, media));
-    dispatch(fetchTrailers(id));
-    dispatch(fetchDetail(id));
-    dispatch(fetchTvDetail(id));
+    dispatch(fetchTrailers(id, media));
+    if (media === 'movie') {
+      dispatch(fetchDetail(id));
+    } else {
+      dispatch(fetchTvDetail(id));
+    }
   }, [id, dispatch]);
 
   if (
@@ -36,7 +40,7 @@ function Detail() {
     return (
       <DetailView
         youtubeTrailer={youtubeTrailer}
-        movie={detail || tv}
+        movie={media === 'tv' ? tv : detail}
         cast={cast.data.movie.cast || cast.data.tv.cast}
       />
     );

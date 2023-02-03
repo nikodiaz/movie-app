@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const baseImg = 'https://image.tmdb.org/t/p/w342/';
 
-function Card({ data, media = 'movie' }) {
+function Card({ data }) {
   const favorites = useSelector((state) => state.favs);
   const dispatch = useDispatch();
 
@@ -23,6 +23,8 @@ function Card({ data, media = 'movie' }) {
     poster_path: baseImg + data.poster_path,
     vote_average: data.vote_average,
   };
+
+  const media = data.title ? 'movie' : data.name ? 'tv' : 'movie';
 
   const movieIsAdded = favorites.movies.find(
     (movie) => movie.id === cardData.id
@@ -85,7 +87,6 @@ function Card({ data, media = 'movie' }) {
 
 Card.propTypes = {
   data: PropTypes.object.isRequired,
-  media: PropTypes.string,
 };
 
 export default Card;

@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import { GET_IMG, IMG_POSTER_SMALL } from '../store/vars';
 import PropTypes from 'prop-types';
 
-function CardSmall({ data, media = 'movie' }) {
+function CardSmall({ data }) {
+  const media = data.title ? 'movie' : data.name ? 'tv' : 'movie';
+
   return (
     <Link className="cardSmall" to={`/${media}/${data.id}`}>
       <figure className="cardSmall-poster">

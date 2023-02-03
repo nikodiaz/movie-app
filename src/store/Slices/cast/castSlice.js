@@ -16,11 +16,7 @@ const castSlice = createSlice({
     fetchCast(state) {
       state.loading = true;
     },
-    fetchCastMovieSuccess(state, action) {
-      state.loading = false;
-      state.data.movie = action.payload;
-    },
-    fetchCastTvSuccess(state, action) {
+    fetchCastSuccess(state, action) {
       state.loading = false;
       state.data.tv = action.payload;
     },
@@ -31,10 +27,5 @@ const castSlice = createSlice({
   },
 });
 
-export const {
-  fetchCast,
-  fetchCastFail,
-  fetchCastMovieSuccess,
-  fetchCastTvSuccess,
-} = castSlice.actions;
+export const { fetchCast, fetchCastFail, fetchCastSuccess } = castSlice.actions;
 export default castSlice;
