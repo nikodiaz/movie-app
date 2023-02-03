@@ -1,40 +1,40 @@
 body {
-	font-family: 'Roboto';
-	overflow-x: hidden;
-	&::-webkit-scrollbar {
-		width: 12px;
-		background: $eerie;
-	}
-	&::-webkit-scrollbar-thumb {
-		border-radius: 15px;
-		background: $dust;
-		border-right: 2px solid $eerie;
-		border-left: 2px solid $eerie;
-	}
+  font-family: 'Roboto';
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 12px;
+    background: $eerie;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background: $dust;
+    border-right: 2px solid $eerie;
+    border-left: 2px solid $eerie;
+  }
 }
 
 #root {
-	width: 100vw;
-	//min-height: 100vh;
-	background: $eerie;
-	padding-bottom: 4rem;
-	h1,
-	h2,
-	h3 {
-		font-weight: 400;
-	}
+  width: 100vw;
+  min-height: 100vh;
+  background: $eerie;
+  padding-bottom: 4rem;
+  h1,
+  h2,
+  h3 {
+    font-weight: 400;
+  }
 
-	.rating {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		margin: 0;
-		gap: 0.5rem;
-		svg {
-			color: $red;
-		}
-	}
-	a {
-		text-decoration: none;
-	}
+  .rating {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    gap: 0.5rem;
+    svg {
+      color: $red;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
 }

@@ -11,12 +11,13 @@ import {
 
 // endpoints
 
-const urlLatest =
+/* const urlLatest =
   api.BASE_URL +
   api.GET_LATEST +
   api.TYPE_MOVIE +
   api.API_KEY +
   api.PARAMS_LANG_SPA;
+*/
 
 const urlTrend = (type, time) =>
   api.BASE_URL +
@@ -53,7 +54,7 @@ const urlDetail = (id) =>
 
 // Latest
 
-export const fetchLatestMovies = () => {
+/* export const fetchLatestMovies = () => {
   return async (dispatch) => {
     dispatch(fetchStart());
     try {
@@ -65,6 +66,7 @@ export const fetchLatestMovies = () => {
     }
   };
 };
+*/
 
 // Trending
 

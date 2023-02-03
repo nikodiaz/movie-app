@@ -19,7 +19,7 @@ export const PARAMS_GENRE = '&with_genres=';
 
 export const GET_SEARCH_MOVIE = 'search/movie?query=';
 export const GET_IMG = 'https://image.tmdb.org/t/p/';
-export const GET_CAST = '/casts';
+export const GET_CAST = '/credits';
 export const GET_VIDEO = '/videos';
 export const URL_YOUTUBE = 'https://www.youtube.com/embed/';
 
