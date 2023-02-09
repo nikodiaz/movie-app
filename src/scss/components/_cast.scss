@@ -1,25 +1,40 @@
 .casts--content {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	.cast--item {
-		width: 150px;
-		text-align: center;
-		img {
-			width: 80px;
-			height: 80px;
-			border-radius: 50%;
-			object-fit: cover;
-			object-position: top;
-		}
-		h3 {
-			margin: 0.3rem;
-			font-weight: 400;
-		}
-	}
+  padding-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background: $dust;
+  }
+  .cast--item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50px;
+      object-fit: cover;
+      object-position: 0 -10px;
+    }
+    p {
+      margin: 0;
+      font-weight: 400;
+      min-width: 150px;
+    }
+    small {
+      color: $dust;
+    }
+  }
 }
 @media (max-width: 425px) {
-	.casts--content {
-		justify-content: center;
-	}
+  .casts--content {
+    justify-content: center;
+  }
 }

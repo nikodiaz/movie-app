@@ -30,7 +30,6 @@ function CardSmall({ data }) {
 
 CardSmall.propTypes = {
   data: PropTypes.object.isRequired,
-  media: PropTypes.string,
 };
 
 export default CardSmall;
