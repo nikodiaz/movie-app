@@ -1,43 +1,67 @@
 import Hero from '../../components/Hero';
 import PropTypes from 'prop-types';
-import { GET_IMG, IMG_POSTER_ORIGINAL, URL_YOUTUBE } from '../../store/vars';
+import { GET_IMG, IMG_POSTER_ORIGINAL } from '../../store/vars';
+import Cast from '../../components/Cast';
+import { AiFillStar } from 'react-icons/ai';
+import useResize from '../../hooks/useResize';
+import Trailer from '../../components/Trailer';
+import StreamService from '../../components/StreamService';
+import Categories from '../../components/Categories';
 
 function DetailView({ movie, cast, youtubeTrailer }) {
+  const { width } = useResize();
+  const genrePosition = {
+    position: `${movie.title ? 'static' : 'absolute'}`,
+  };
+
   return (
     <div className="detail">
       <section className="detail-description">
-        <Hero data={movie} />
         <div className="detail-description__overview">
-          <div className="casts">
-            <h2>Casts</h2>
-            <div className="casts--content">
-              {cast
-                .filter((actor) => actor.popularity >= 20)
-                .map((actor) => (
-                  <div key={actor.id} className="cast--item">
-                    <img
-                      src={GET_IMG + IMG_POSTER_ORIGINAL + actor.profile_path}
-                      alt={actor.name}
-                    />
-                    <h3>{actor.name}</h3>
-                  </div>
-                ))}
+          <Hero data={movie} />
+          <div className="hero--overview">
+            <div>
+              <img
+                src={GET_IMG + IMG_POSTER_ORIGINAL + movie.poster_path}
+                width={'300px'}
+              />
+            </div>
+            <div>
+              <h1>{movie.title || movie.name}</h1>
+              <p className="rating">
+                <AiFillStar />
+                {movie.vote_average?.toFixed(1)}
+                <span className="media-type">
+                  {movie.title ? 'Movie' : 'Tv Serie'}
+                </span>
+                <span className="premiere">
+                  {movie.release_date?.substring(0, 4) ||
+                    movie.first_air_date?.substring(0, 4)}
+                </span>
+              </p>
+              <p>{width > 768 ? movie.overview : movie.overview}</p>
+              {movie.name && <StreamService data={movie} />}
+              {movie.genres && (
+                <div style={genrePosition}>
+                  <Categories>
+                    {movie.genres.map((genre) => {
+                      return (
+                        <div key={genre.id} className="tag">
+                          {genre.name}
+                        </div>
+                      );
+                    })}
+                  </Categories>
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      </section>
-      <section className="detail-trailers">
-        <h2>Trailers</h2>
-        <div className="detail-trailers__list">
-          {youtubeTrailer.map((trailer) => (
-            <iframe
-              className="trailer"
-              key={trailer.id}
-              title={URL_YOUTUBE + trailer.key}
-              src={URL_YOUTUBE + trailer.key}
-              allowFullScreen
-            />
-          ))}
+          {/* <---- CAST ----> */}
+          {cast.length > 0 ? <Cast cast={cast} /> : null}
+          {/* <---- TRAILER ----> */}
+          {youtubeTrailer.length > 0 ? (
+            <Trailer youtubeTrailer={youtubeTrailer} />
+          ) : null}
         </div>
       </section>
     </div>

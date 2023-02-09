@@ -53,7 +53,7 @@ function NavBar() {
               }
             >
               <HiOutlineBookmark />
-              <small>Favorites</small>
+              <small>Watchlist</small>
             </NavLink>
           </li>
         </ul>

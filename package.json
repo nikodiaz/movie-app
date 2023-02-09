@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "cross-env jest --verbose"
+    "test": "cross-env jest --verbose",
+    "test:watch": "jest --watch"
   },
   "jest": {
     "testEnviroment": "node"

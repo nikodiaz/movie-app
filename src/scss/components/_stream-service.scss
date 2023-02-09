@@ -1,0 +1,19 @@
+.stream {
+  &-content {
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100px;
+      height: 80px;
+      background: #c4c4c453;
+      border-radius: 10px;
+      p {
+        margin: 0;
+        color: $white;
+      }
+    }
+  }
+}
