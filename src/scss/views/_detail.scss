@@ -1,11 +1,52 @@
 .detail {
+  position: relative;
   color: $white;
-  margin-left: 70px;
-  h2,
-  .detail-trailers__list {
+  .main-layout {
+    padding: 2rem 0 0 5rem;
+  }
+  h1 {
+    margin-top: 0;
+  }
+  .rating {
+    padding-bottom: 1rem;
+  }
+  .play {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    color: $white;
+    background: #c4c4c453;
+    border: none;
+    border-radius: 5px;
+    text-shadow: none;
+    transition: all ease-in-out 0.2s;
+    &:hover {
+      transform: scale(1.05);
+      background: #333333ee;
+    }
+  }
+  .close {
+    position: absolute;
+    bottom: 5rem;
+  }
+  .detail-trailer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 8;
     display: flex;
-
-    margin-left: 3vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: #333333ee;
+    .trailer {
+      padding-left: 4rem;
+      width: 90%;
+      height: 500px;
+    }
   }
   &-description {
     display: flex;
@@ -14,6 +55,9 @@
     justify-content: space-between;
     &__overview {
       width: 100%;
+      p {
+        padding-bottom: 0.5rem;
+      }
       h1,
       h4,
       p {
@@ -22,21 +66,13 @@
     }
   }
 }
-.detail-trailers {
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    .trailer {
-      width: 90%;
-      height: 400px;
-    }
-  }
-}
 
 @media screen and (max-width: 768px) {
   .detail {
     margin-left: 0;
+    .main-layout {
+      padding: 0;
+    }
     &-description {
       flex-direction: column;
       &__overview {
@@ -44,13 +80,31 @@
         width: 90%;
       }
     }
-    .detail-trailers {
-      margin-top: 24rem;
-      &__list {
-        .trailer {
-          width: 90%;
-          height: 300px;
-        }
+    .detail-trailer {
+      .trailer {
+        position: absolute;
+        top: 3rem;
+        padding-left: 0;
+        width: 100%;
+        height: 400px;
+      }
+      .close {
+        bottom: 16rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .detail {
+    .main-layout {
+      padding: 0;
+    }
+    .detail-trailer {
+      justify-content: center;
+      .trailer {
+        width: 100%;
+        height: 320px;
       }
     }
   }
@@ -68,13 +122,13 @@
         width: 100%;
       }
     }
-    .detail-trailers {
-      &__list {
-        justify-content: center;
-        .trailer {
-          width: 90%;
-          height: 200px;
-        }
+    .detail-trailer {
+      justify-content: center;
+      .trailer {
+        height: 250px;
+      }
+      .close {
+        bottom: 24rem;
       }
     }
   }

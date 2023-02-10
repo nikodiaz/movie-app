@@ -50,7 +50,7 @@ const Results = () => {
             </ResultsView>
             <Pagination
               page={results.page}
-              total_pages={results.total_pages}
+              totalPages={results.total_pages}
               next={() => setPage(page + 1)}
               prev={() => setPage(page - 1)}
             />

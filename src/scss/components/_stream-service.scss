@@ -1,5 +1,11 @@
 .stream {
+  padding-bottom: 1rem;
+  h3 {
+    margin: 1rem 0;
+  }
   &-content {
+    display: flex;
+    gap: 0.5rem;
     &__item {
       display: flex;
       flex-direction: column;

@@ -5,11 +5,11 @@ const Cast = ({ cast }) => {
   return (
     <div className="casts">
       <h2>Cast</h2>
-      <div className="casts--content">
+      <div className="casts-content">
         {cast
           .filter((actor) => actor.profile_path !== null)
           .map((actor) => (
-            <div key={actor.cast_id} className="cast--item">
+            <div key={actor.cast_id || actor.id} className="cast--item">
               <img
                 src={GET_IMG + 'w154' + actor.profile_path}
                 alt={actor.name}

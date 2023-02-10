@@ -1,27 +1,44 @@
 import PropTypes from 'prop-types';
-import { URL_YOUTUBE } from '../store/vars';
+import Youtube from 'react-youtube';
 
-const Trailer = ({ youtubeTrailer }) => {
+const Trailer = ({ youtubeTrailer, playing, setPlaying }) => {
   return (
-    <section className="detail-trailers">
-      <h2>Trailers</h2>
-      <div className="detail-trailers__list">
-        {youtubeTrailer.map((trailer) => (
-          <iframe
+    <>
+      {playing && (
+        <section className="detail-trailer">
+          <Youtube
             className="trailer"
-            key={trailer.id}
-            title={URL_YOUTUBE + trailer.key}
-            src={URL_YOUTUBE + trailer.key}
-            allowFullScreen
+            videoId={youtubeTrailer[0].key}
+            key={youtubeTrailer[0].id}
+            containerClassName={'youtube-container amru'}
+            opts={{
+              width: '100%',
+              height: '100%',
+              playerVars: {
+                autoplay: 1,
+                controls: 0,
+                cc_load_policy: 0,
+                fs: 0,
+                iv_load_policy: 0,
+                modestbranding: 0,
+                rel: 0,
+                showinfo: 0,
+              },
+            }}
           />
-        ))}
-      </div>
-    </section>
+          <button onClick={() => setPlaying(false)} className="play close">
+            Close
+          </button>
+        </section>
+      )}
+    </>
   );
 };
 
 Trailer.propTypes = {
   youtubeTrailer: PropTypes.array,
+  playing: PropTypes.bool,
+  setPlaying: PropTypes.func,
 };
 
 export default Trailer;

@@ -8,7 +8,6 @@ const Favorites = ({ favorites }) => {
     <Layout>
       <div className="favorites">
         <SearchBar />
-        <h1 className="favorites-title">Favoritos</h1>
         <div className="favorites-movies">
           <h2>Películas favoritas</h2>
           <div className="favorites-container">
