@@ -7,6 +7,7 @@ const initialState = {
     popular: [],
     trending: [],
     by_genre: [],
+    similar: [],
   },
   genres: [],
   detail: {},
@@ -22,6 +23,10 @@ const movieSlice = createSlice({
     fetchFail(state, action) {
       state.loading = false;
       state.error = action.payload;
+    },
+    fetchSimilarSuccess(state, action) {
+      state.loading = false;
+      state.movies.similar = action.payload;
     },
     fetchPopularSuccess(state, action) {
       state.loading = false;
@@ -54,5 +59,6 @@ export const {
   fetchByGenreSuccess,
   fetchGenresSuccess,
   fetchDetailsSuccess,
+  fetchSimilarSuccess,
 } = movieSlice.actions;
 export default movieSlice;

@@ -7,6 +7,7 @@ import {
   fetchGenresSuccess,
   fetchDetailsSuccess,
   fetchFail,
+  fetchSimilarSuccess,
 } from './movieSlice';
 
 // endpoints
@@ -51,6 +52,9 @@ const urlGenre =
 
 const urlDetail = (id) =>
   api.BASE_URL + api.GET_MOVIE(id) + api.API_KEY + api.PARAMS_LANG_SPA;
+
+const urlSimilar = (id) =>
+  api.BASE_URL + api.GET_MOVIE(id) + api.GET_SIMILAR + api.API_KEY;
 
 // Latest
 
@@ -142,6 +146,21 @@ export const fetchDetail = (id) => {
       dispatch(fetchDetailsSuccess(await data));
     } catch (error) {
       dispatch(fetchFail(await error));
+    }
+  };
+};
+
+// Similar Movies
+
+export const fetchSimilarMovies = (id) => {
+  return async (dispatch) => {
+    dispatch(fetchStart());
+    try {
+      const res = await fetch(urlSimilar(id));
+      const data = await res.json();
+      dispatch(fetchSimilarSuccess(data));
+    } catch (error) {
+      dispatch(fetchFail(error));
     }
   };
 };
