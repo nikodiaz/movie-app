@@ -1,36 +1,52 @@
-.casts--content {
-  padding-bottom: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    height: 10px;
+.casts {
+  h2 {
+    margin-left: 2rem;
   }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 15px;
-    background: $dust;
-  }
-  .cast--item {
+  &-content {
+    padding-bottom: 1rem;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    img {
-      height: 100px;
-      width: 100px;
-      border-radius: 50px;
-      object-fit: cover;
-      object-position: 0 -10px;
+    gap: 0.5rem;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      height: 10px;
     }
-    p {
-      margin: 0;
-      font-weight: 400;
-      min-width: 150px;
+    &::-webkit-scrollbar-thumb {
+      border-radius: 15px;
+      background: $dust;
     }
-    small {
-      color: $dust;
+    .cast--item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        object-fit: cover;
+        object-position: 0 -10px;
+      }
+      p {
+        margin: 0;
+        font-weight: 400;
+        min-width: 150px;
+      }
+      small {
+        color: $dust;
+      }
     }
+  }
+}
+@media (max-width: 768px) {
+  .casts {
+    padding-top: 6rem;
+    width: 100vw;
+  }
+}
+@media (max-width: 620px) {
+  .casts {
+    padding: 0;
   }
 }
 @media (max-width: 425px) {

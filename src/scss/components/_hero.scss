@@ -4,8 +4,8 @@
   background-size: cover;
   display: flex;
   align-items: center;
-  min-height: 80vh;
-  box-shadow: inset 1px 1px 20px 20px $eerie;
+  min-height: 85vh;
+  box-shadow: inset 1px 1px 20px 30px $eerie;
   h1 {
     font-size: 2rem;
     font-weight: 400;
@@ -28,15 +28,12 @@
   }
 }
 .hero--overview {
-  position: absolute;
-  top: 0;
   z-index: 2;
   display: flex;
   gap: 2rem;
   justify-content: center;
   align-items: flex-start;
-  margin: 10vh 5vw;
-  height: inherit;
+  padding: 0 2rem;
   color: $white;
   text-shadow: 2px 1px 5px black;
   .review-counts,
@@ -54,19 +51,33 @@
 
 @media screen and (max-width: 768px) {
   .hero {
-    aspect-ratio: 16/9;
+    width: 100vw;
+    padding-top: 2rem;
   }
   .hero--overview {
-    margin: 2vh 5vw;
     flex-direction: column;
+    width: 100%;
+    .poster {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
   }
 }
 @media screen and (max-width: 620px) {
   .hero {
-    height: 80vh;
-    aspect-ratio: 3/5;
+    width: 90vw;
+    padding-left: 1rem;
+    padding-top: 0;
   }
   .hero--overview {
-    margin: 0vh 5vw;
+    .poster {
+      padding-top: 4rem;
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .hero {
+    padding: 0;
   }
 }
