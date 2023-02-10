@@ -8,6 +8,7 @@ const initialState = {
     trend: [],
     byGenre: [],
     popular: [],
+    similar: [],
   },
   genres: [],
   detail: {},
@@ -27,6 +28,10 @@ const tvSlice = createSlice({
     fetchLatestSuccess(state, action) {
       state.loading = false;
       state.series.latest = action.payload;
+    },
+    fetchSimilarSuccess(state, action) {
+      state.loading = false;
+      state.series.similar = action.payload;
     },
     fetchPopularSuccess(state, action) {
       state.loading = false;
@@ -60,5 +65,6 @@ export const {
   fetchLatestSuccess,
   fetchPopularSuccess,
   fetchTrendSuccess,
+  fetchSimilarSuccess,
 } = tvSlice.actions;
 export default tvSlice;

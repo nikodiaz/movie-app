@@ -8,6 +8,7 @@ import {
   fetchLatestSuccess,
   fetchPopularSuccess,
   fetchTrendSuccess,
+  fetchSimilarSuccess,
 } from './tvSlice';
 
 // endpoints
@@ -51,6 +52,9 @@ const urlGenre =
 
 const urlDetail = (id) =>
   api.BASE_URL + api.GET_TV(id) + api.API_KEY + api.PARAMS_LANG_SPA;
+
+const urlSimilar = (id) =>
+  api.BASE_URL + api.GET_TV(id) + api.GET_SIMILAR + api.API_KEY;
 
 // Latest
 
@@ -138,6 +142,20 @@ export const fetchTvDetail = (id) => {
       dispatch(fetchDetailsSuccess(await data));
     } catch (error) {
       dispatch(fetchFail(await error));
+    }
+  };
+};
+// Similar
+
+export const fetchSimilarTv = (id) => {
+  return async (dispatch) => {
+    dispatch(fetchStart());
+    try {
+      const res = await fetch(urlSimilar(id));
+      const data = await res.json();
+      dispatch(fetchSimilarSuccess(data));
+    } catch (error) {
+      dispatch(fetchFail(error));
     }
   };
 };

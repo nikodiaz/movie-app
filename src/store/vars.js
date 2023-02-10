@@ -10,6 +10,7 @@ export const GET_TOP_RATED = 'top_rated';
 export const GET_UPCOMING = 'upcoming';
 export const GET_LATEST = 'latest';
 export const GET_TRENDING = 'trending/';
+export const GET_SIMILAR = '/similar';
 export const GET_MOVIE = (movieID) => `movie/${movieID}`;
 export const GET_TV = (tvId) => `tv/${tvId}`;
 

@@ -5,8 +5,10 @@ import Trailer from '../../components/Trailer';
 import { useState } from 'react';
 import Description from '../../components/Description';
 import Layout from '../../components/Layout/Layout';
+import List from '../../components/List';
+import Card from '../../components/Card';
 
-function DetailView({ movie, cast, youtubeTrailer }) {
+function DetailView({ movie, cast, youtubeTrailer, similar }) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -28,6 +30,10 @@ function DetailView({ movie, cast, youtubeTrailer }) {
             ) : null}
             {/* <---- CAST ----> */}
             {cast.length > 0 ? <Cast cast={cast} /> : null}
+            <List title="Similar">
+              {similar &&
+                similar.map((item) => <Card key={item.id} data={item} />)}
+            </List>
           </div>
         </section>
       </Layout>
@@ -38,6 +44,7 @@ function DetailView({ movie, cast, youtubeTrailer }) {
 DetailView.propTypes = {
   movie: PropTypes.object.isRequired,
   cast: PropTypes.array.isRequired,
+  similar: PropTypes.array,
   youtubeTrailer: PropTypes.array.isRequired,
 };
 
