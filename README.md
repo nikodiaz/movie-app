@@ -6,6 +6,8 @@ A simple app that allows you to discover movies and series. Written with React H
 
 ## Demo
 
+![image](https://user-images.githubusercontent.com/20620395/218196761-a7488a60-1fcd-4dee-9003-66ea6277cdff.png)
+
 The trial version is hosted on Netlify. Attention! It still contains bugs, but I'm working on it and constantly updating.
 
 If you want to see how the development is going, here is the link to the [demo](https://nd-movie-review.netlify.app/).
@@ -17,15 +19,14 @@ This app allows you:
 - Search movies
 - Get movie info
 - Get similar movies
-- Discover popular/trending/latest movies
+- Discover popular/trending/latest movies & tv series
 - Add to favorites
 - Watch trailers
+- Get serie info
 
 ## Features soon
 
 - Search tv series
-- Get serie info
-- Discover popular/trending/latest tv series
 
 ## Tech Features
 
