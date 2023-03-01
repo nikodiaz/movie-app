@@ -3,7 +3,7 @@ import { search, searchFail, searchSuccess } from './searchSlice';
 
 const urlSearch = (page, query) =>
   api.BASE_URL +
-  api.GET_SEARCH_MOVIE +
+  api.GET_SEARCH_MULTI +
   query +
   api.API_KEY_ALT +
   api.PAGE(page);
