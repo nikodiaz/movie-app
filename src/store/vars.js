@@ -19,6 +19,7 @@ export const PARAMS_LANG_ENG = '&language=en-US';
 export const PARAMS_GENRE = '&with_genres=';
 
 export const GET_SEARCH_MOVIE = 'search/movie?query=';
+export const GET_SEARCH_MULTI = 'search/multi?query=';
 export const GET_IMG = 'https://image.tmdb.org/t/p/';
 export const GET_CAST = '/credits';
 export const GET_VIDEO = '/videos';

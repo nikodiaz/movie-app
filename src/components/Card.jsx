@@ -57,31 +57,37 @@ function Card({ data }) {
   };
 
   return (
-    <article className="card">
-      <Fav
-        movieIsAdded={movieIsAdded || tvIsAdded}
-        handleClick={movieIsAdded || tvIsAdded ? handleDelete : handleAdd}
-      />
-      <Link to={`/${media}/${data.id}`} className="card-link">
-        <div
-          className="card-container"
-          style={style}
-          data-img-url={baseImg + data.poster_path}
-        >
-          <div className="card-overview">
-            <p className="rating">
-              <AiFillStar />
-              {data.vote_average}
-              <span className="year">
-                {data.release_date?.split('-')[0] ||
-                  data.first_air_date?.split('-')[0]}
-              </span>
-            </p>
-            <h3 className="card-overview__title">{data.title || data.name}</h3>
-          </div>
-        </div>
-      </Link>
-    </article>
+    <>
+      {data.poster_path !== null && data.profile_path !== null && (
+        <article className="card">
+          <Fav
+            movieIsAdded={movieIsAdded || tvIsAdded}
+            handleClick={movieIsAdded || tvIsAdded ? handleDelete : handleAdd}
+          />
+          <Link to={`/${media}/${data.id}`} className="card-link">
+            <div
+              className="card-container"
+              style={style}
+              data-img-url={baseImg + data.poster_path}
+            >
+              <div className="card-overview">
+                <p className="rating">
+                  <AiFillStar />
+                  {data.vote_average?.toFixed(1)}
+                  <span className="year">
+                    {data.release_date?.split('-')[0] ||
+                      data.first_air_date?.split('-')[0]}
+                  </span>
+                </p>
+                <h3 className="card-overview__title">
+                  {data.title || data.name}
+                </h3>
+              </div>
+            </div>
+          </Link>
+        </article>
+      )}
+    </>
   );
 }
 
