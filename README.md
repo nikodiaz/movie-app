@@ -23,10 +23,13 @@ This app allows you:
 - Add to favorites
 - Watch trailers
 - Get serie info
-
-## Features soon
-
 - Search tv series
+
+## I am currently working on
+
+- Migrate the project to typescript
+- Add unit test
+- Refactor components to make them more reusable
 
 ## Tech Features
 
